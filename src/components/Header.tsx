@@ -5,7 +5,7 @@ const Header = () => {
       {/* -------------- Logo ---------------- */}
       <div className="w-40 h-9 flex flex-row items-center justify-between">
           <h2 className="w-32 h-full text-2xl font-normal text-blue-500">MART<span className="text-yellow-400">FLUX</span></h2>
-          <img src="src/assets/menu-02.svg" alt="icon"  className="hidden md:block"/>
+          <img src="/src/public/menu-02.svg" alt="icon"  className="hidden md:block"/>
       </div>
 
       {/* --------------search bar---------------------- */}
@@ -15,7 +15,7 @@ const Header = () => {
            </select>
            <input type="text" className="h-full outline-none p-2"/>
            <div className="bg-yellow-300 text-black h-full p-2">
-              <img src="src/assets/searchIcon.svg" alt="" className="h-full w-7" />
+              <img src="/src/public/assets/searchIcon.svg" alt="" className="h-full w-7" />
            </div>
       </div>
 
@@ -27,7 +27,7 @@ const Header = () => {
         </select>
 
         <div className="flex flex-row ">
-            <img src="src/assets/solar_bag.svg" alt="icon" />
+            <img src="/src/public/assets/solar_bag.svg" alt="icon" />
             <span className="text-white ml-2">0</span>
         </div>
 

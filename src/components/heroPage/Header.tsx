@@ -28,7 +28,7 @@ const HeroPageHeader = () => {
       <section className="relative  w-full h-20 md:h-40 bg-[#f2da7c] flex justify-center items-center px-3">
         <div className="w-20  md:w-44 md:h-[70%] md:absolute left-20">
           <img
-            src="src/assets/discount coupons.png"
+            src="/src/public/assets/discount coupons.png"
             alt=""
             className="w-full h-full"
           />
