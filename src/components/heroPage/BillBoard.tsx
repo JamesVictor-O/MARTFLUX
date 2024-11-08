@@ -13,7 +13,7 @@ const BillBoard = () => {
       
        {/* third product */}
        <div className="w-[30rem] h-[37rem]  rounded-3xl">
-          <img src="/public/assets/Frame.png" alt="" className="w-full h-full object-fit overflow-hidden" />
+          <img src="/src/public/assets/Frame.png" alt="" className="w-full h-full object-fit overflow-hidden" />
        </div>
     </div>
   )
