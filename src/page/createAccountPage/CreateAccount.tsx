@@ -1,4 +1,4 @@
-
+import createImage from "/public/createImage.png"
 const CreateAccount = () => {
   return (
     <div className="w-full h-screen md:h-svh p-5 flex flex-row items-center">
@@ -43,7 +43,7 @@ const CreateAccount = () => {
          </div>
          {/* image */}
          <div className="hidden md:flex w-[50%] h-full bg-white rounded-md overflow-hidden">
-           <img src="/public/createImage.png" alt="" className="w-full h-full object-cover" />
+           <img src={createImage} alt="" className="w-full h-full object-cover" />
          </div>
     </div>
   )
