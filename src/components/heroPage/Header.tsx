@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
 const HeroPageHeader = () => {
   return (
     <div className="w-full h-full">
       {/* categories */}
       <section className="h-16 w-full bg-[#091952] flex items-center align-middle justify-center">
         <ul className="w-full md:w-1/2 h-10 px-4 md:px-0 flex flex-row items-center align-middle justify-between text-white">
-          <li className="h-8 items-center font-bold cursor-pointer  md:">
+         <Link to={"/newAccount"}>
+         <li className="h-8 items-center font-bold cursor-pointer  md:">
             Hot Deals
           </li>
+         </Link>
+         
           <li className="h-8 items-center font-bold cursor-pointer">Men</li>
           <li className="h-8 items-center font-bold cursor-pointer hidden md:block">
             Gadgets
