@@ -1,3 +1,4 @@
+import discountCop from "/public/discount coupons.png"
 import { Link } from "react-router-dom";
 const HeroPageHeader = () => {
   return (
@@ -28,7 +29,7 @@ const HeroPageHeader = () => {
       <section className="relative  w-full h-20 md:h-40 bg-[#f2da7c] flex justify-center items-center px-3">
         <div className="w-20  md:w-44 md:h-[70%] md:absolute left-20">
           <img
-            src="/src/public/assets/discount coupons.png"
+            src={discountCop}
             alt=""
             className="w-full h-full"
           />

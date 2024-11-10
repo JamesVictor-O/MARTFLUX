@@ -1,11 +1,13 @@
-
+import appLogo from "/public/assets/menu-02.svg"
+import searchIcon from "/public/assets/searchIcon.svg"
+import solarBag from "/public/assets/solar_bag.svg"
 const Header = () => {
   return (
     <div className="w-full h-16 bg-[#141B34] flex flex-row items-center align-middle p-2 md:p-5 md:px-10 justify-between">
       {/* -------------- Logo ---------------- */}
       <div className="w-40 h-9 flex flex-row items-center justify-between">
           <h2 className="w-32 h-full text-2xl font-normal text-blue-500">MART<span className="text-yellow-400">FLUX</span></h2>
-          <img src="/src/public/menu-02.svg" alt="icon"  className="hidden md:block"/>
+          <img src={appLogo} alt="icon"  className="hidden md:block"/>
       </div>
 
       {/* --------------search bar---------------------- */}
@@ -15,7 +17,7 @@ const Header = () => {
            </select>
            <input type="text" className="h-full outline-none p-2"/>
            <div className="bg-yellow-300 text-black h-full p-2">
-              <img src="/src/public/assets/searchIcon.svg" alt="" className="h-full w-7" />
+              <img src={searchIcon} alt="" className="h-full w-7" />
            </div>
       </div>
 
@@ -27,7 +29,7 @@ const Header = () => {
         </select>
 
         <div className="flex flex-row ">
-            <img src="/src/public/assets/solar_bag.svg" alt="icon" />
+            <img src={solarBag} alt="icon" />
             <span className="text-white ml-2">0</span>
         </div>
 
