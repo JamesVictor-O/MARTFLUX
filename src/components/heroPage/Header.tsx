@@ -1,5 +1,5 @@
-import discountCop from "/public/discount coupons.png"
-import { Link } from "react-router-dom";
+// import discountCop from "/public/discount coupons.png"
+// import { Link } from "react-router-dom";
 const HeroPageHeader = () => {
   return (
     <div className="w-full h-full">
