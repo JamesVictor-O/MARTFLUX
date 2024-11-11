@@ -1,5 +1,5 @@
 import createImage from "/public/createImage.png"
-import CreateAccountForm from "../../components/createAccountComponents/CreateAccountForm"
+// import CreateAccountForm from "../../components/createAccountComponents/CreateAccountForm"
 import CreateVendorAccount from "../../components/createAccountComponents/CreateVendorAccount"
 const CreateAccount = () => {
   return (
