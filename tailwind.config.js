@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        "custom-bg":"url('/public/assets/bags-with-gifts-top-copy-space.jpg')"
+      }
+    },
   },
   plugins: [],
 }

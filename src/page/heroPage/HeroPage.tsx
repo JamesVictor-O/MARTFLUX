@@ -1,10 +1,12 @@
 import HeroPageHeader from "../../components/heroPage/Header"
 import BillBoard from "../../components/heroPage/BillBoard"
+import LandingPage from "./LandingPage"
 const HeroPage = () => {
   return (
    <div>
       <HeroPageHeader/>
-      <BillBoard/>
+      <LandingPage/>
+      {/* <BillBoard/> */}
    </div>
   )
 }
