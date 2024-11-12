@@ -1,14 +1,20 @@
-import HeroPageHeader from "../../components/heroPage/Header"
-// import BillBoard from "../../components/heroPage/BillBoard"
-import LandingPage from "./LandingPage"
+import HeroPageHeader from "../../components/heroPage/Header";
+import Trending from "./Trending";
+import LandingPage from "./LandingPage";
+import Summary from "./Summary";
+import Category from "./Category";
 const HeroPage = () => {
   return (
-   <div>
-      <HeroPageHeader/>
-      <LandingPage/>
-      {/* <BillBoard/> */}
-   </div>
-  )
-}
+    <div>
+      <HeroPageHeader />
+      <LandingPage />
+      <div className="w-full pt-10 py-5">
+        <Summary />
+      </div>
+      <Trending/>
+      <Category/>
+    </div>
+  );
+};
 
-export default HeroPage
+export default HeroPage;
