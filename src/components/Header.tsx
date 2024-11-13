@@ -26,7 +26,7 @@ const Header = () => {
       {/* ------------------cart icon  ----------------------------- */}
       <div className="flex flex-row justify-between items-center md:w-96">
 
-        <select className="outline-none bg-transparent text-white">
+        <select className="hidden md:block outline-none bg-transparent text-white">
             <option value="usa">Usa</option>
         </select>
 
