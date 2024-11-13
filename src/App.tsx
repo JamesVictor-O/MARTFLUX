@@ -10,7 +10,7 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={<Root/>}>
         <Route index element={<HeroPage/>} />
-        <Route path='newAccount' element={<CreateAccount/>}/>
+        <Route path='createAccount' element={<CreateAccount/>}/>
 
       </Route>
     )

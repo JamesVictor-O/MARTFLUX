@@ -2,17 +2,17 @@
 
 const CreateAccountForm = () => {
   return (
-    <div className="w-[30rem] h-[40rem] rounded-3xl border border-[#B5B1B1] p-10">
+    <div className="w-full md:w-[30rem] h-[40rem] rounded-3xl md:border border-[#B5B1B1] p-5 md:p-10">
       <div className="h-20 flex flex-col justify-between">
-        <h2 className="text-[#0634D8] font-semibold leading-10 text-3xl">
+        <h2 className="text-[#0634D8] font-semibold leading-10 text-3xl text-center md:text-left">
           Create an account
         </h2>
-        <p className="text-base font-normal leading-7">
+        <p className="text-base font-normal leading-7 text-center md:text-left">
           Set an account up for free. and enjoy free delivery
         </p>
         {/* forms */}
         <div className="w-full h-full mt-3">
-          <form className="border-b pb-4 border-[#BBBBBB]">
+          <form className="md:border-b pb-4 border-[#BBBBBB]">
             <div className="w-full h-20 flex flex-col items-start mb-2">
               <label className="text-[#172248] text-base font-normal leading-6">
                 Your Name

@@ -1,13 +1,15 @@
-import createImage from "/public/createImage.png"
+import createImage from "/createImage.png"
+import CreateVendorsAccount from "../../components/createAccountComponents/CreateVendorsAccount"
 // import CreateAccountForm from "../../components/createAccountComponents/CreateAccountForm"
-import CreateVendorAccount from "../../components/createAccountComponents/CreateVendorAccount"
+// import AccountType from "../../components/createAccountComponents/AccountType"
 const CreateAccount = () => {
   return (
-    <div className="w-full h-screen md:h-svh p-5 flex flex-row items-center">
+    <div className="w-full h-screen md:h-full md:p-5 flex flex-row items-center">
          {/* account creation section */}
-         <div className="w-full md:w-[50%] h-full flex md:items-center justify-center  align-middle ">
+         <div className="w-full h-svh  md:w-[50%] md:h-full flex md:items-center justify-center  align-middle ">
            {/* <CreateAccountForm/> */}
-           <CreateVendorAccount/>
+             <CreateVendorsAccount/>
+           {/* <AccountType/> */}
          </div>
          {/* image */}
          <div className="hidden md:flex w-[50%] h-full bg-white rounded-md overflow-hidden">

@@ -2,6 +2,8 @@ import appLogo from "/public/assets/menu-02.svg"
 import searchIcon from "/public/assets/searchIcon.svg"
 import solarBag from "/public/assets/solar_bag.svg"
 import LogImage from "/logoImage.png"
+import menuItem from "/menu.png"
+import { Link } from "react-router-dom"
 const Header = () => {
   return (
     <div className="w-full h-16 bg-[#141B34] flex flex-row items-center align-middle p-2 md:p-5 md:px-10 justify-between">
@@ -30,13 +32,19 @@ const Header = () => {
             <option value="usa">Usa</option>
         </select>
 
-        <div className="flex flex-row ">
+        <div className="flex flex-row mr-4 md:mr-0">
             <img src={solarBag} alt="icon" />
             <span className="text-white ml-2">0</span>
         </div>
 
         <div className="hidden md:block w-24 h-9 rounded-md text-black bg-white">
+            <Link to={"createAccount"}>
             <button className="w-full h-full">Shop Now</button>
+            </Link>
+        </div>
+
+        <div className=" md:hidden  w-[2rem] mx-2">
+           <img src={menuItem} alt="humbuger" className="w-full h-full object-contain" />
         </div>
       </div>
       

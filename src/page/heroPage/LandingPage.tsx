@@ -3,8 +3,8 @@
 import BillBoard from "../../components/heroPage/BillBoard";
 
 const LandingPage = () => {
-  return (
-    <div className="w-full md:h-full bg-[#F1EDE7] flex items-center align-middle pt-2 md:pt-6 flex-col px-4 md:px-4">
+  return ( 
+    <div className="w-full h-screen md:h-full bg-[#F1EDE7] flex items-center align-middle pt-2 md:pt-6 flex-col px-4 md:px-4">
        <div className="w-full md:w-[70%] h-48 flex flex-col justify-center align-middle items-center">
             <h2 className="text-2xl md:text-5xl text-[#05144A] font-medium text-center">
               Shop with convenience,that lets you complete your purchase in
