@@ -1,4 +1,4 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const SliderContext = createContext<any>(null);
 
@@ -6,7 +6,7 @@ const AppContext = ({children}:any) => {
   let [isMenuOpen, setIsMenuOpen]=useState<boolean>(false)
 
 
-  const contextValue = { isMenuOpen };
+  const contextValue = { isMenuOpen,setIsMenuOpen };
 
   return (
     <SliderContext.Provider value={contextValue}>
