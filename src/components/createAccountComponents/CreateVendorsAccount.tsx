@@ -3,10 +3,10 @@ const CreateVendorsAccount = () => {
     <div>
       <div className="w-full md:w-[30rem] h-[50rem] md:rounded-3xl md:border border-[#B5B1B1] p-5 md:p-10">
         <div className="h-20 flex flex-col justify-between">
-          <h2 className="text-[#0634D8] font-semibold leading-10 text-3xl text-center md:text-left">
+          <h2 className="text-[#0634D8] font-semibold leading-10 text-3xl text-center md:text-left font-wix">
             Create an account
           </h2>
-          <p className="text-base font-normal leading-7 text-center md:text-left">
+          <p className="text-base font-normal leading-7 text-center md:text-left font-wix">
             Set an account up for free. and enjoy free delivery
           </p>
           {/* forms */}

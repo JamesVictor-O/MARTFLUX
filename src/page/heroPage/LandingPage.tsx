@@ -1,10 +1,10 @@
 // import bgImage from "/public/assets/bags-with-gifts-top-copy-space.jpg"
-// import advertImage from "/public/assets/hand holding shopping bag.png"
+import advertImage from "/public/assets/hand holding shopping bag.png"
 import BillBoard from "../../components/heroPage/BillBoard";
 
 const LandingPage = () => {
   return ( 
-    <div className="w-full h-screen md:h-full bg-[#F1EDE7] flex md:items-center align-middle pt-2 md:pt-6 flex-col px-3  md:px-4">
+    <div className="relative w-full h-screen md:h-full bg-[#F1EDE7] flex md:items-center align-middle pt-2 md:pt-6 flex-col px-3  md:px-4">
        <div className="md:w-[70%] md:h-48 flex flex-col md:justify-center md:align-middle md:items-center  mt-10">
             <h2 className="text-4xl md:text-5xl text-[#05144A] font-medium font-wix text-left md:text-center">
               Shop with convenience,that lets you complete your purchase in
@@ -23,6 +23,11 @@ const LandingPage = () => {
         {/* billbord */}
         <div className="mt-16 mb-8">
            <BillBoard/>
+        </div>
+
+        {/* bag icon */}
+        <div className="absolute right-5 top-0 md:right-36 md:top-8 w-[3rem] md:w-[5rem]">
+          <img src={advertImage} alt="" />
         </div>
     </div>
   );

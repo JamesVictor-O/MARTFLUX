@@ -12,7 +12,7 @@ const CreateAccount = () => {
            {/* <AccountType/> */}
          </div>
          {/* image */}
-         <div className="hidden md:flex w-[50%] h-full bg-white rounded-md overflow-hidden">
+         <div className="hidden md:flex w-[50%] h-[55rem] bg-white rounded-md overflow-hidden">
            <img src={createImage} alt="" className="w-full h-full object-cover" />
          </div>
     </div>

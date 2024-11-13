@@ -5,7 +5,7 @@ import Summary from "./Summary";
 import Category from "./Category";
 const HeroPage = () => {
   return (
-    <div>
+    <div className="">
       <HeroPageHeader />
       <LandingPage />
       <div className="w-full pt-10 py-5">
