@@ -8,6 +8,9 @@ export default {
     extend: {
       backgroundImage:{
         "custom-bg":"url('/public/assets/bags-with-gifts-top-copy-space.jpg')"
+      },
+      fontFamily:{
+        "wix":["Wix Madefor Text", "sans-serif"]
       }
     },
   },

@@ -4,13 +4,13 @@ import BillBoard from "../../components/heroPage/BillBoard";
 
 const LandingPage = () => {
   return ( 
-    <div className="w-full h-screen md:h-full bg-[#F1EDE7] flex items-center align-middle pt-2 md:pt-6 flex-col px-4 md:px-4">
-       <div className="w-full md:w-[70%] h-48 flex flex-col justify-center align-middle items-center">
-            <h2 className="text-2xl md:text-5xl text-[#05144A] font-medium text-center">
+    <div className="w-full h-screen md:h-full bg-[#F1EDE7] flex md:items-center align-middle pt-2 md:pt-6 flex-col px-3  md:px-4">
+       <div className="md:w-[70%] md:h-48 flex flex-col md:justify-center md:align-middle md:items-center  mt-10">
+            <h2 className="text-4xl md:text-5xl text-[#05144A] font-medium font-wix text-left md:text-center">
               Shop with convenience,that lets you complete your purchase in
               seconds
             </h2>
-            <p className="md:w-[60%] text-center  text-[#3A4778] md:mt-10 ">
+            <p className=" md:w-[60%] text-left md:text-center  text-[#3A4778] mt-6 md:mt-10 font-wix">
               Browse your favorite products, enjoy hassle-free checkout, and
               experience the future of online shopping—fast, secure, and
               effortless."
