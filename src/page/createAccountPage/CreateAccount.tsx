@@ -6,7 +6,7 @@ const CreateAccount = () => {
   return (
     <div className="w-full h-screen md:h-full md:p-5 flex flex-row items-center">
          {/* account creation section */}
-         <div className="w-full h-svh  md:w-[50%] md:h-full flex md:items-center justify-center  align-middle ">
+         <div className="w-full h-full md:w-[50%] md:h-full flex md:items-center justify-center  align-middle ">
            {/* <CreateAccountForm/> */}
              <CreateVendorsAccount/>
            {/* <AccountType/> */}
