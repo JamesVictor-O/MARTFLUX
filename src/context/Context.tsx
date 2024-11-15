@@ -7,7 +7,7 @@ const AppContext = ({children}:any) => {
 
 
   const [isMenuOpen, setIsMenuOpen]=useState<boolean>(false)
-  const [currentIndex,setCurrentIndex]=useState(0)
+  const [accountType,setAccountType]=useState<String | null>(null)
    const handle_toggle_menu=()=>{
      setIsMenuOpen(!isMenuOpen)
    }
@@ -16,8 +16,8 @@ const AppContext = ({children}:any) => {
     isMenuOpen,
     setIsMenuOpen,
     handle_toggle_menu,
-   currentIndex,
-   setCurrentIndex
+    accountType,
+    setAccountType
   };
 
   

@@ -1,22 +1,32 @@
 import shopIcon from "/shop.svg";
 import populationIcon from "/population.svg";
-import { useContext, useState } from "react";
-import { SliderContext } from "../../context/context";
-
+import {  useState } from "react";
+import { useNavigate } from "react-router";
+// import { SliderContext } from "../../context/Context";
 
 const AccountType = () => {
-  const {setCurrentIndex,}=useContext(SliderContext)
-  const [selectedCheckbox, setSelectedCheckbox] = useState<Number | null>(null)
-// setting account type
-  const handle_account_type=(nextPage:number)=>{
-        setSelectedCheckbox(nextPage)
-  }
-// navigating to the next form
-  const handle_Next=()=>{
-     if(selectedCheckbox === null) return;
-     setCurrentIndex(selectedCheckbox)
-  }
-    
+  // const { setAccountType } = useContext(SliderContext);
+  const navigate=useNavigate()
+  const [selectedCheckbox, setSelectedCheckbox] = useState<Number | null>(null);
+  // setting account type
+  const handle_account_type = (nextPage: number) => {
+    setSelectedCheckbox(nextPage);
+  };
+  // navigating to the next form
+  const handle_Next = () => {
+    if (selectedCheckbox === null) return;
+    // if (selectedCheckbox == 1) {
+    //   setAccountType("shopper");
+    // }else{
+    //   setAccountType("vendor");
+    // }
+    if(selectedCheckbox == 2){
+          navigate('createVendorAccount')
+    }
+
+    console.log(selectedCheckbox)
+  };
+
   return (
     <div className="w-[30rem] h-[39rem] md:rounded-3xl md:border border-[#B5B1B1] p-5 md:p-10">
       {/* header */}
@@ -43,8 +53,8 @@ const AccountType = () => {
           </div>
 
           <input
-           onChange={()=>handle_account_type(2)}
-            checked={selectedCheckbox == 2}
+            onChange={() => handle_account_type(1)}
+            checked={selectedCheckbox == 1}
             type="radio"
             name="1"
             className="form-radio text-blue-600 w-4 h-4"
@@ -69,8 +79,8 @@ const AccountType = () => {
           </div>
 
           <input
-          onChange={()=> handle_account_type(1)}
-          checked={selectedCheckbox == 1}
+            onChange={() => handle_account_type(2)}
+            checked={selectedCheckbox == 2}
             // onChange={handle_account_type}
             type="radio"
             name="2"
@@ -87,7 +97,10 @@ const AccountType = () => {
 
       {/* button section - move this outside of main body */}
       <div className="w-full flex justify-center ">
-        <button className="px-6 py-2 bg-[#141B34] text-white rounded-lg w-full" onClick={handle_Next}>
+        <button
+          className="px-6 py-2 bg-[#141B34] text-white rounded-lg w-full"
+          onClick={handle_Next}
+        >
           Next
         </button>
       </div>

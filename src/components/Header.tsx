@@ -5,11 +5,11 @@ import LogImage from "/logoImage.png";
 import menuItem from "/menu2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
-import { SliderContext } from "../context/context";
-import { useContext} from "react";
+import { SliderContext } from "../context/Context";
+import { useContext } from "react";
 
 const Header = () => {
-  const {isMenuOpen,handle_toggle_menu} = useContext(SliderContext);
+  const { isMenuOpen, handle_toggle_menu } = useContext(SliderContext);
   return (
     <div className="fixed z-20 w-full h-16 bg-[#141B34] flex flex-row items-center align-middle p-2 md:p-5 md:px-10 justify-between">
       {/* -------------- Logo ---------------- */}
@@ -58,9 +58,7 @@ const Header = () => {
         </div>
       </div>
 
-      {isMenuOpen && (
-        <MobileSidebar/>
-      )} 
+      {isMenuOpen && <MobileSidebar />}
     </div>
   );
 };
