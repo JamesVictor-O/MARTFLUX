@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 interface BusinessValueProps{
   businessName?: string;
   businessRegNo?: string;
@@ -19,6 +18,7 @@ const CreateVendorsAccount = () => {
   });
 
   const [formError,setFormErrors]=useState<BusinessValueProps>({})
+  // const [isCreateAccSuccesful,setIsCreateAccSuccesful]=useState<boolean>(false)
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -30,6 +30,7 @@ const CreateVendorsAccount = () => {
   };
   const handleSubmitForm=(e:React.FormEvent<HTMLFormElement>)=>{
       e.preventDefault()
+      // if(formError.length < 0)
       setFormErrors(validateForm(vendorsDetails))
 
   }

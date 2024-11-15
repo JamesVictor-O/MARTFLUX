@@ -1,6 +1,22 @@
 import shopIcon from "/shop.svg";
 import populationIcon from "/population.svg";
+import { useContext, useState } from "react";
+import { SliderContext } from "../../context/context";
+
+
 const AccountType = () => {
+  const {setCurrentIndex,}=useContext(SliderContext)
+  const [selectedCheckbox, setSelectedCheckbox] = useState<Number | null>(null)
+// setting account type
+  const handle_account_type=(nextPage:number)=>{
+        setSelectedCheckbox(nextPage)
+  }
+// navigating to the next form
+  const handle_Next=()=>{
+     if(selectedCheckbox === null) return;
+     setCurrentIndex(selectedCheckbox)
+  }
+    
   return (
     <div className="w-[30rem] h-[39rem] md:rounded-3xl md:border border-[#B5B1B1] p-5 md:p-10">
       {/* header */}
@@ -27,8 +43,10 @@ const AccountType = () => {
           </div>
 
           <input
+           onChange={()=>handle_account_type(2)}
+            checked={selectedCheckbox == 2}
             type="radio"
-            name="userType"
+            name="1"
             className="form-radio text-blue-600 w-4 h-4"
           />
         </div>
@@ -51,8 +69,11 @@ const AccountType = () => {
           </div>
 
           <input
+          onChange={()=> handle_account_type(1)}
+          checked={selectedCheckbox == 1}
+            // onChange={handle_account_type}
             type="radio"
-            name="userType"
+            name="2"
             className="form-radio text-blue-600 w-4 h-4"
           />
         </div>
@@ -66,8 +87,8 @@ const AccountType = () => {
 
       {/* button section - move this outside of main body */}
       <div className="w-full flex justify-center ">
-        <button className="px-6 py-2 bg-[#141B34] text-white rounded-lg w-full">
-          Create account
+        <button className="px-6 py-2 bg-[#141B34] text-white rounded-lg w-full" onClick={handle_Next}>
+          Next
         </button>
       </div>
 
