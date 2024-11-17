@@ -4,6 +4,7 @@ import HeroPage from "./page/heroPage/HeroPage";
 import CreateAccount from "./page/createAccountPage/CreateAccount";
 import CreateAccountLandingPage from "./page/createAccountPage/CreateAccountLandingPage";
 import CreateVendorAccountPage from "./page/createVendorsAccount/createVendorsAccountPage";
+import CreateShopperAcccount from "./page/createShopperAccount.tsx/CreateShopperAcccount";
 import AppContext from "./context/Context";
 
 import {
@@ -23,6 +24,10 @@ function App() {
           <Route
             path="createVendorAccount"
             element={<CreateVendorAccountPage />}
+          />
+          <Route
+            path="createShopperAccount"
+            element={<CreateShopperAcccount />}
           />
         </Route>
       </Route>

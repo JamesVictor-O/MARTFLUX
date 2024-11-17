@@ -3,7 +3,7 @@ import CreateVendorsAccount from "../../components/createAccountComponents/Creat
 import VerifyEmail from "../../components/EmailVerification"
 import { useState } from "react"
 const CreateVendorAccountPage = () => {
-  const [currendIndex,setCurrentIndex]=useState<Number | null>(null)
+  const [currentIndex,setCurrentIndex]=useState<number>(0)
 
   let allComponents=[
     <CreateVendorsAccount setCurrentIndex={setCurrentIndex}/>,
@@ -13,7 +13,7 @@ const CreateVendorAccountPage = () => {
     <div className="w-full h-screen md:h-full md:p-5 flex flex-row md:items-center justify-center">
          {/* account creation section */}
          <div className="w-full h-full md:w-[50%] md:h-full flex md:items-center justify-center  align-middle ">
-           <CreateVendorsAccount setCurrentIndex={setCurrentIndex}/>
+           {allComponents[currentIndex]}
          </div>
          {/* image */}
          <div className="hidden md:flex w-[50%] h-[55rem] bg-white rounded-md overflow-hidden">

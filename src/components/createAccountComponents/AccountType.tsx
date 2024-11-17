@@ -15,13 +15,10 @@ const AccountType = () => {
   // navigating to the next form
   const handle_Next = () => {
     if (selectedCheckbox === null) return;
-    // if (selectedCheckbox == 1) {
-    //   setAccountType("shopper");
-    // }else{
-    //   setAccountType("vendor");
-    // }
-    if(selectedCheckbox == 2){
-          navigate('createVendorAccount')
+    if(selectedCheckbox == 1){
+          navigate('createShopperAccount')
+    }else{
+      navigate('createVendorAccount')
     }
 
     console.log(selectedCheckbox)
