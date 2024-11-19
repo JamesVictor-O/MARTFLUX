@@ -6,7 +6,7 @@ const Root = () => {
   return (
     <div>
         <Header/> 
-        <div className="pt-[4rem]">
+        <div className="">
         <Outlet />
         </div>
        

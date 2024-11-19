@@ -5,69 +5,84 @@ import LogImage from "/logoImage.png";
 import menuItem from "/menu2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
-import { useDispatch, useSelector } from "react-redux";
-import { toggle_menu } from "../context/redux/RegistrationSlice";
-
+import { SliderContext } from "../context/Context";
+import { useContext } from "react";
 
 const Header = () => {
-  const dispatch=useDispatch();
-  const isMenuOpen=useSelector((state:any) => state.registration.isOpenMenu)
-  const  accountType=useSelector((state:any) => state.registration.accountType)
-
-  const handle_toggle_menu=()=>{
-    // dispatch(toggle_menu())
-    console.log(isMenuOpen)
-  }
-
+  const { isMenuOpen, handle_toggle_menu } = useContext(SliderContext);
   return (
-    <div className="fixed z-20 w-full h-16 bg-[#141B34] flex flex-row items-center align-middle p-2 md:p-5 md:px-10 justify-between">
-      {/* -------------- Logo ---------------- */}
-      <div className="w-40 h-9 flex flex-row items-center justify-between">
-        <img src={LogImage} className="h-8 me-3" alt="FlowBite Logo" />
-        <h2 className="w-32 h-full text-2xl font-normal text-blue-500">
-          MART<span className="text-yellow-400">FLUX</span>
-        </h2>
-        <img src={appLogo} alt="icon" className="hidden md:block ml-5" />
-      </div>
-
-      {/* --------------search bar---------------------- */}
-      <div className="w-96 h-10  hidden md:flex flex-row items-center rounded-lg overflow-hidden bg-yellow-500">
-        <select className="h-full w-24 outline-none px-2">
-          <option value="men">Men</option>
-        </select>
-        <input type="text" className="h-full outline-none p-2" />
-        <div className="bg-yellow-300 text-black h-full p-2">
-          <img src={searchIcon} alt="" className="h-full w-7" />
-        </div>
-      </div>
-
-      {/* ------------------cart icon  ----------------------------- */}
-      <div className="flex flex-row justify-between items-center md:w-96">
-        <select className="hidden md:block outline-none bg-transparent text-white">
-          <option value="usa">Usa</option>
-        </select>
-
-        <div className="flex flex-row mr-4 md:mr-0">
-          <img src={solarBag} alt="icon" />
-          <span className="text-white ml-2">0</span>
+    <div className=" w-full flex flex-row justify-center items-center bg-[#1A2859]">
+      <div className="w-full md:w-[85%] md:my-7 h-16 bg-white flex flex-row items-center md:rounded-md align-middle p-2 md:p-5 md:px-10 justify-between">
+        {/* -------------- Logo ---------------- */}
+        <div className="w-40 h-9 flex flex-row items-center justify-between">
+          <img src={LogImage} className="h-8 me-3" alt="FlowBite Logo" />
+          <h2 className="w-32 h-full text-2xl font-normal text-blue-500">
+            MART<span className="text-yellow-400">FLUX</span>
+          </h2>
+          <img src={appLogo} alt="icon" className="hidden md:block ml-5" />
         </div>
 
-        <div className="hidden md:block w-24 h-9 rounded-md text-black bg-white">
-          <Link to={"createAccount"}>
-            <button className="w-full h-full">Shop Now</button>
-          </Link>
-        </div>
-
-        <div className=" md:hidden  w-[2rem] mx-2" onClick={handle_toggle_menu}>
-          <img
-            src={menuItem}
-            alt="humbuger"
-            className="w-full h-full object-contain"
+        {/* --------------search bar---------------------- */}
+        <div className="w-80 h-10  hidden md:hidden lg:flex flex-row items-center rounded-lg overflow-hidden">
+          <input
+            type="text"
+            className="h-full outline-none p-2 border-gray-300 border overflow-hidden"
           />
+          <div className="bg-[#C4CEF3] text-black h-full p-2">
+            <img src={searchIcon} alt="" className="h-full w-7" />
+          </div>
         </div>
-      </div>
+        {/* menu items */}
+        <div className="hidden md:flex">
+          <ul className="flex flex-row items-center w-full ml-4">
+            <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
+              Home
+            </li>
+            <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
+              About
+            </li>
+            <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
+              Why Us{" "}
+            </li>
+          </ul>
+        </div>
+        {/* ------------------cart icon  ----------------------------- */}
+        <div className="flex flex-row justify-between items-center md:w-96">
+          <select className="hidden md:block outline-none bg-transparent text-white">
+            <option value="usa">Usa</option>
+          </select>
 
-      {isMenuOpen && <MobileSidebar />}
+          <div className="flex flex-row mr-4 md:mr-0">
+            <img src={solarBag} alt="icon" />
+            <span className="text-white ml-2">0</span>
+          </div>
+
+          <div className="hidden md:flex flex-row items-center justify-between w-[90%] h-9 rounded-md text-black">
+            <button className="text-base hover:bg-blue-200 h-full px-2 rounded-md ">
+              Sign in as vendor
+            </button>
+            <Link
+              to={"createAccount"}
+              className="w-[50%] border-[#F3C300] border h-full rounded-md hover:bg-blue-200 hover:border-none"
+            >
+              <button className="w-full border h-full">Login</button>
+            </Link>
+          </div>
+
+          <div
+            className=" md:hidden  w-[2rem] mx-2"
+            onClick={handle_toggle_menu}
+          >
+            <img
+              src={menuItem}
+              alt="humbuger"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+
+        {isMenuOpen && <MobileSidebar />}
+      </div>
     </div>
   );
 };

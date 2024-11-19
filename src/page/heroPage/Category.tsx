@@ -12,13 +12,14 @@ import Caps from "/caps.jpg"
 
 const Category = () => {
   return (
-    <div className="px-3 md:px-10 mb-10">
-        <div className="w-full h-[4rem] ">
-            <h2 className="text-2xl font-semibold  mb-2 text-left font-wix  md:text-left">Shop by category</h2>
-            <p className="text-base font-normal text-gray-500 font-wix text-left ">Get All home,office, housing and workspace items on the go. Find all at once for you and your love once</p>
+    <div className="mb-10">
+        <div className=" w-full px-10 h-[8rem] flex items-center align-middle justify-center  ">
+            <h2 className="md:text-2xl  font-semibold  mb-2 text-left font-wix  md:text-left">Categories of products, all for you</h2>
+            <span className="mx-4 h-[6rem] border-r border-black"></span>
+            <p className="text-base font-normal text-gray-500 font-wix text-left ">With ease find the latest procuts missing in your homes, office and workshops.</p>
         </div>
         {/* categorie container */}
-        <div className="grid grid-cols-2 md:grid-cols-4 md:gap-y-5 mt-24 md:mt-8 gap-5 ">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:gap-y-5 mt-24 md:mt-8 gap-5 bg-[#FFF5CB] px-10 md:px-20 py-8">
             {/* categories 1 */}
             <div className="flex flex-col items-center md:w-[20rem]">
                 <div className="rounded-lg h-[10rem] md:h-[20rem] w-full overflow-hidden">
