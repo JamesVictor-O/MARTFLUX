@@ -27,7 +27,7 @@ const CreateAccountForm = () => {
 
   const handle_submit=(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    // setErrorMessages(validate(shoppe  rDetails))
+    setErrorMessages(validate(shopperDetails))
   }
 
   const validate=(details:ShopperDetailsProps)=>{

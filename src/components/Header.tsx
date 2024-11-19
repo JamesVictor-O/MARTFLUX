@@ -5,11 +5,20 @@ import LogImage from "/logoImage.png";
 import menuItem from "/menu2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
-import { SliderContext } from "../context/Context";
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggle_menu } from "../context/redux/RegistrationSlice";
+
 
 const Header = () => {
-  const { isMenuOpen, handle_toggle_menu } = useContext(SliderContext);
+  const dispatch=useDispatch();
+  const isMenuOpen=useSelector((state:any) => state.registration.isOpenMenu)
+  const  accountType=useSelector((state:any) => state.registration.accountType)
+
+  const handle_toggle_menu=()=>{
+    // dispatch(toggle_menu())
+    console.log(isMenuOpen)
+  }
+
   return (
     <div className="fixed z-20 w-full h-16 bg-[#141B34] flex flex-row items-center align-middle p-2 md:p-5 md:px-10 justify-between">
       {/* -------------- Logo ---------------- */}

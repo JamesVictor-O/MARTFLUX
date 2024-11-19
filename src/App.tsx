@@ -5,7 +5,8 @@ import CreateAccount from "./page/createAccountPage/CreateAccount";
 import CreateAccountLandingPage from "./page/createAccountPage/CreateAccountLandingPage";
 import CreateVendorAccountPage from "./page/createVendorsAccount/createVendorsAccountPage";
 import CreateShopperAcccount from "./page/createShopperAccount.tsx/CreateShopperAcccount";
-import AppContext from "./context/Context";
+import configureStore from "./context/redux/configureStore";
+import { Provider } from "react-redux";
 
 import {
   createBrowserRouter,
@@ -35,9 +36,9 @@ function App() {
   );
 
   return (
-    <AppContext>
-      <RouterProvider router={router} />
-    </AppContext>
+      <Provider store={configureStore}>
+         <RouterProvider router={router} />
+      </Provider>
   );
 }
 
