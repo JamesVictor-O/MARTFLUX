@@ -5,10 +5,12 @@ import Summary from "./Summary";
 const HeroPage = () => {
   return (
     <div className="">
+      
       <LandingPage />
+      <Summary/>
       <Category/>
       <Trending/>
-      <Summary/>
+     
     </div>
   );
 };

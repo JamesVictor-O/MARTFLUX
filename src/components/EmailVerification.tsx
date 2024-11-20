@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 
 const VerifyEmail = () => {
   const [otp, setOtp] = useState("");
-  const [timer, setTimer] = useState(58);
 
   return (
     
@@ -38,7 +37,7 @@ const VerifyEmail = () => {
         </button>
         <p className="mt-4 text-sm text-gray-600">
           You can send another OTP in{" "}
-          <span className="font-medium text-yellow-600">{timer} Secs</span>
+          <span className="font-medium text-yellow-600">Secs</span>
         </p>
         <p className="mt-2 text-sm text-gray-700">
           Already have an account?{" "}

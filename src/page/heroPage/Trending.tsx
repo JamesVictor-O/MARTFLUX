@@ -2,7 +2,7 @@ import BusinessMan from "/public/Businessman.png";
 
 const Trending = () => {
   return (
-    <div className="w-full px-3 md:px-10 mb-9">
+    <div className="w-full px-3  mb-9">
       <div className=" w-full px-10 h-[8rem] flex items-center align-middle justify-center  ">
         <h2 className="md:text-3xl  font-semibold  mb-2  font-wix w-[26rem] mr-4">
           Buy and list your products as a vendor on marketplace
@@ -13,7 +13,7 @@ const Trending = () => {
           workshops.{" "}
         </p>
       </div>
-      <div className="w-full h-[30rem] relative mt-10 bg-[#FFF5CB]">
+      <div className="w-full md:h-[30rem] relative  bg-[#FFF5CB]">
         {/* <Image src={"/trending2.jpg"} alt=""/> */}
 
         <div className="md:absolute bg-white md:w-[40rem] py-5 px-10 rounded-md text-white border border-gray-300 md:text-black md:ml-[20rem] mt-[2rem]">

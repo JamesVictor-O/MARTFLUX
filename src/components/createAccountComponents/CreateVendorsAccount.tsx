@@ -82,7 +82,7 @@ const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
           <div className="w-[90%] md:w-full h-full mt-3 ml-3">
             <form className="md:border-b pb-4 border-[#BBBBBB]" onSubmit={handleSubmitForm}>
               <div className="w-full flex flex-col items-start mb-3">
-                <label className="text-[#2E3A59] text-base font-semibold mb-1 font-wix">
+                <label className="text-[#2E3A59] text-sm font-semibold mb-1 font-wix">
                   Business Name
                 </label>
                 <input
@@ -90,14 +90,14 @@ const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
                   type="text"
                   value={vendorsDetails.businessName}
                   placeholder="provide a unique business name"
-                  className="w-full border border-gray-300 outline-none h-9 px-2 rounded-lg  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
+                  className="w-full border border-gray-300 outline-none h-9 px-2 rounded  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
                 <p className="text-red-600 text-xs font-wix">{formError.businessName}</p>
               </div>
               
               <div className="w-full flex flex-col items-start mb-3">
-                <label className="text-[#2E3A59] text-base font-semibold mb-1 font-wix">
+                <label className="text-[#2E3A59] text-sm font-semibold mb-1 font-wix">
                   Business Registration Number
                 </label>
                 <input
@@ -105,13 +105,13 @@ const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
                   value={vendorsDetails.businessRegNo}
                   type="text"
                   placeholder="business registered number"
-                  className="w-full border border-gray-300 outline-none h-9 px-2 rounded-lg  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
+                  className="w-full border border-gray-300 outline-none h-9 px-2 rounded  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
                  <p className="text-red-600 text-xs font-wix">{formError.businessRegNo}</p>
               </div>
               <div className="w-full flex flex-col items-start mb-3">
-                <label className="text-[#2E3A59] text-base font-semibold mb-1 font-wix">
+                <label className="text-[#2E3A59] text-sm font-semibold mb-1 font-wix">
                   Business Email
                 </label>
                 <input
@@ -119,13 +119,13 @@ const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
                   value={vendorsDetails.businessEmail}
                   type="text"
                   placeholder="registered business name"
-                  className="w-full border border-gray-300 outline-none h-12 px-2 rounded-lg  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
+                  className="w-full border border-gray-300 outline-none h-9 px-2 rounded  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
                  <p className="text-red-600 text-xs font-wix">{formError.businessEmail}</p>
               </div>
               <div className="w-full flex flex-col items-start mb-3">
-                <label className="text-[#2E3A59] text-base font-semibold mb-1 font-wix">
+                <label className="text-[#2E3A59] text-sm font-semibold mb-1 font-wix">
                   Business Address
                 </label>
                 <input
@@ -133,7 +133,7 @@ const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
                   name="businessAddress"
                   type="text"
                   placeholder="business address"
-                  className="w-full border border-gray-300 outline-none h-9 px-2 rounded-lg text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
+                  className="w-full border border-gray-300 outline-none h-9 px-2 rounded text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
                  <p className="text-red-600 text-xs font-wix">{formError.businessAddress}</p>

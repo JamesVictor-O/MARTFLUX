@@ -1,33 +1,32 @@
 import CloseMenu from "/closeMenu.svg";
 import { Link } from "react-router-dom";
-import { SliderContext } from "../context/Context";
-import { useContext } from "react";
+import {useDispatch } from "react-redux";
+import { toggle_isMenuOpen } from "../context/redux/counter/counterSlice";
 
 const MobileSidebar = () => {
-  const { handle_toggle_menu } = useContext(SliderContext);
-
+  let dispatch=useDispatch();
   return (
-    <div className="fixed inset-0 bg-white opacity h-screen  w-[14rem] ml-40 p-4">
+    <div className="absolute  inset-y-1/4 bg-white h-screen w-[70%] top-0 right-0 z-20 p-4">
       <img
-        onClick={handle_toggle_menu}
+        onClick={()=> dispatch(toggle_isMenuOpen())}
         src={CloseMenu}
         alt=""
         className="w-[2rem]"
       />
-      <div className=" w-full h-full mt-4 flex flex-col justify-between">
+      <div className=" w-full h-full mt-4 flex flex-col  justify-between">
         {/* for menus */}
-        <div className="pt-10 flex flex-col  justify-center items-center align-middle">
+        <div className="pt-10 flex flex-col z-40 justify-center items-center align-middle">
           <Link
             to={"/createAccount"}
             className="bg-blue-300  py-3 px-5 rounded-md mb-3"
-            onClick={handle_toggle_menu}
+            onClick={()=>dispatch(toggle_isMenuOpen())}
           >
             Home
           </Link>
           <Link
             to={"/"}
             className="bg-blue-300 py-3 px-5 rounded-md mb-3 "
-            onClick={handle_toggle_menu}
+            onClick={()=>dispatch(toggle_isMenuOpen())}
           >
             Home
           </Link>

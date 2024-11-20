@@ -5,11 +5,16 @@ import LogImage from "/logoImage.png";
 import menuItem from "/menu2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
-import { SliderContext } from "../context/Context";
-import { useContext } from "react";
+import { RootState } from "../context/redux/configureStore";
+import { useDispatch,useSelector } from "react-redux";
+import { toggle_isMenuOpen } from "../context/redux/counter/counterSlice";
+
 
 const Header = () => {
-  const { isMenuOpen, handle_toggle_menu } = useContext(SliderContext);
+  let dispatch= useDispatch();
+  let isMenuOpen=useSelector((state:RootState)=> state.counter.isMenuOpen);
+
+  // const { isMenuOpen, handle_toggle_menu } = useContext(SliderContext);
   return (
     <div className=" w-full flex flex-row justify-center items-center bg-[#1A2859]">
       <div className="w-full md:w-[85%] md:my-7 h-16 bg-white flex flex-row items-center md:rounded-md align-middle p-2 md:p-5 md:px-10 justify-between">
@@ -71,7 +76,7 @@ const Header = () => {
 
           <div
             className=" md:hidden  w-[2rem] mx-2"
-            onClick={handle_toggle_menu}
+            onClick={()=> dispatch(toggle_isMenuOpen())}
           >
             <img
               src={menuItem}
