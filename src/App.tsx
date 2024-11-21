@@ -14,6 +14,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import AboutUs from "./page/aboutUs/AboutUs";
 
 function App() {
   const router = createBrowserRouter(
@@ -31,6 +32,7 @@ function App() {
             element={<CreateShopperAcccount />}
           />
         </Route>
+        <Route path="aboutUs" element={<AboutUs/>}/>
       </Route>
     )
   );

@@ -1,12 +1,12 @@
-import createImage from "/createImage.png"
-import CreateVendorsAccount from "../../components/createAccountComponents/CreateVendorsAccount"
+// import createImage from "/createImage.png"
 import VerifyEmail from "../../components/EmailVerification"
+import VendorInformationSection from "./VendorInformationSection"
 import { useState } from "react"
 const CreateVendorAccountPage = () => {
   const [currentIndex,setCurrentIndex]=useState<number>(0)
 
   let allComponents=[
-    <CreateVendorsAccount setCurrentIndex={setCurrentIndex}/>,
+    <VendorInformationSection/>,
     <VerifyEmail/>
   ]
   return (

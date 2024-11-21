@@ -9,11 +9,11 @@ interface BusinessValueProps{
 }
 
 interface CreateAccountProps{
-  setCurrentIndex:React.Dispatch<React.SetStateAction<number>>
+  handleNext:()=> void;
 }
 
 
-const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
+const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
   const [vendorsDetails, setVendorsDetails] = useState({
     businessName: "",
     businessRegNo: "",
@@ -38,9 +38,7 @@ const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
       e.preventDefault()
       console.log("okay")
       setFormErrors(validateForm(vendorsDetails))
-       if(Object.keys(formError).length <= 0){
-         setCurrentIndex(1)
-       }
+
 
   }
 
@@ -170,7 +168,7 @@ const CreateVendorsAccount = ({setCurrentIndex}:CreateAccountProps) => {
                 </div>
               </div>
               <div className="w-full h-11 flex flex-col mt-14 md:mt-0 items-start mb-2 rounded-lg overflow-hidden">
-                <button type="submit" className="w-full h-full bg-[#141B34] text-white">
+                <button type="submit" className="w-full h-full bg-[#141B34] text-white" onClick={handleNext}>
                   continue
                 </button>
               </div>

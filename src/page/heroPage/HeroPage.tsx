@@ -2,6 +2,7 @@ import LandingPage from "./LandingPage";
 import Category from "./Category";
 import Trending from "./Trending";
 import Summary from "./Summary";
+import Hotsales from "./Hotsales";
 const HeroPage = () => {
   return (
     <div className="">
@@ -10,7 +11,7 @@ const HeroPage = () => {
       <Summary/>
       <Category/>
       <Trending/>
-     
+      <Hotsales/>
     </div>
   );
 };

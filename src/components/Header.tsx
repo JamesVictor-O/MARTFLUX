@@ -6,13 +6,12 @@ import menuItem from "/menu2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
 import { RootState } from "../context/redux/configureStore";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggle_isMenuOpen } from "../context/redux/counter/counterSlice";
 
-
 const Header = () => {
-  let dispatch= useDispatch();
-  let isMenuOpen=useSelector((state:RootState)=> state.counter.isMenuOpen);
+  let dispatch = useDispatch();
+  let isMenuOpen = useSelector((state: RootState) => state.counter.isMenuOpen);
 
   // const { isMenuOpen, handle_toggle_menu } = useContext(SliderContext);
   return (
@@ -40,12 +39,17 @@ const Header = () => {
         {/* menu items */}
         <div className="hidden md:flex">
           <ul className="flex flex-row items-center w-full ml-4">
-            <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
-              Home
-            </li>
-            <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
-              About
-            </li>
+            <Link to={"/"} className="hover:bg-blue-200 rounded-md">
+              <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg text-center w-full">
+                Home
+              </li>
+            </Link>
+            <Link to={"aboutUs"}>
+              <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
+                About
+              </li>
+            </Link>
+
             <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
               Why Us{" "}
             </li>
@@ -76,7 +80,7 @@ const Header = () => {
 
           <div
             className=" md:hidden  w-[2rem] mx-2"
-            onClick={()=> dispatch(toggle_isMenuOpen())}
+            onClick={() => dispatch(toggle_isMenuOpen())}
           >
             <img
               src={menuItem}
