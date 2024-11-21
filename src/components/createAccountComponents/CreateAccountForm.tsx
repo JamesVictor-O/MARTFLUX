@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 interface ShopperDetailsProps{
   shopperName:string,
   shopperEmail:string,
@@ -16,7 +16,7 @@ const CreateAccountForm = () => {
     shopperConfirmPassword:""
   }
   const [shopperDetails,setShopperDetails]=useState<ShopperDetailsProps>(initialState)
-  const [errorMessages,setErrorMessages]=useState<ShopperDetailsProps>({})
+  const [errorMessages,setErrorMessages]=useState<ShopperDetailsProps | {}>({})
 
   const handle_change=(e:React.ChangeEvent<HTMLInputElement>)=>{
     setShopperDetails(prev=>({
@@ -27,7 +27,7 @@ const CreateAccountForm = () => {
 
   const handle_submit=(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    // setErrorMessages(validate(shoppe  rDetails))
+    setErrorMessages(validate(shopperDetails))
   }
 
   const validate=(details:ShopperDetailsProps)=>{
