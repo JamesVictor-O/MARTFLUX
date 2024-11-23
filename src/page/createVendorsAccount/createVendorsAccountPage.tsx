@@ -3,7 +3,7 @@ import VerifyEmail from "../../components/EmailVerification"
 import VendorInformationSection from "./VendorInformationSection"
 import { useState } from "react"
 const CreateVendorAccountPage = () => {
-  const [currentIndex,setCurrentIndex]=useState<number>(0)
+  const [currentIndex,_setCurrentIndex]=useState<number>(0)
 
   let allComponents=[
     <VendorInformationSection/>,
