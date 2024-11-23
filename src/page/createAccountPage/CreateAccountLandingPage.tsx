@@ -1,5 +1,4 @@
 import AccountType from "../../components/createAccountComponents/AccountType"
-import createImage from "/createImage.png"
 
 const CreateAccountLandingPage = () => {
   return (

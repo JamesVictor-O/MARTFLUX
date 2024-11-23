@@ -61,7 +61,7 @@ const CreateAccountForm = () => {
         </p>
         {/* forms */}
         <div className="w-full h-full mt-3">
-          <form className="md:border-b pb-4 border-[#BBBBBB]">
+          <form className="md:border-b pb-4 border-[#BBBBBB]" onSubmit={handle_submit}>
             <div className="w-full h-20 flex flex-col items-start mb-2">
               <label className="text-[#172248] text-base font-normal leading-6">
                 Your Name
@@ -74,7 +74,7 @@ const CreateAccountForm = () => {
                 placeholder="input your name"
                 className="w-full border border-[#ADADAD] outline-none h-11 px-2 rounded-md mt-2 shadow"
               />
-              <p className="text-red-600 text-xs font-wix">{errorMessages.shopperName}</p>
+              <p className="text-red-600 text-xs font-wix">{"shopperName" in errorMessages ? errorMessages.shopperName : ""}</p>
             </div>
             <div className="w-full h-20 flex flex-col items-start mb-2">
               <label className="text-[#172248] text-base font-normal leading-6">
