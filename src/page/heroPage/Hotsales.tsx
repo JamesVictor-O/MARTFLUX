@@ -3,11 +3,11 @@ import iwatch from "/public/iPhone2.jpg"
 const Hotsales = () => {
     return (
         <div className="w-full px-3 md:px-10 mb-9">
-          <div className=" w-full px-10 h-[8rem] flex items-center align-middle justify-center  ">
+          <div className=" w-full px-10 h-[8rem] flex flex-col md:flex-row items-center align-middle justify-center  ">
             <h2 className="md:text-3xl  font-semibold  mb-2  font-wix md:w-[26rem] mr-4">
               Featured products
             </h2>
-            <span className="mx-4 h-[6rem] border-r border-black"></span>
+            <span className="hidden md:block mx-4 h-[6rem] border-r border-black"></span>
             <p className="text-sm md:text-base font-normal text-gray-500 font-wix text-left md:w-[20rem] ml-6">
               With ease find the latest procuts missing in your homes, office and
               workshops.{" "}

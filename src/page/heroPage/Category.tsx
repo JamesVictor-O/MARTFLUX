@@ -8,15 +8,13 @@ import Cream from "/bodyCream.jpg"
 import Caps from "/caps.jpg"
 
 
-
-
 const Category = () => {
   return (
     <div className="mb-10 mx-2">
-        <div className=" w-full px-10 h-[8rem] flex items-center align-middle justify-center  ">
-            <h2 className="md:text-3xl  font-semibold  mb-2  font-wix md:w-[26rem] mr-4">Categories of products, all for you</h2>
-            <span className="mx-4 h-[6rem] border-r border-black"></span>
-            <p className="text-base font-normal text-gray-500 font-wix text-left ">With ease find the latest procuts missing in your homes, office and workshops.</p>
+        <div className=" w-full px-4 md:px-10 h-[8rem] flex flex-col md:flex-row items-center align-middle justify-center  ">
+            <h2 className="md:text-xl font-medium  md:mb-2 font-wix md:w-[26rem] md:mr-4 mb-2">Categories of products, all for you.</h2>
+            <span className="hidden md:block mx-4 h-[6rem] border-r border-black"></span>
+            <p className="text-base font-normal text-gray-500 font-wix md:text-left text-center ">With ease find the latest procuts missing in your homes, office and workshops.</p>
         </div>
         {/* categorie container */}
         <div className="grid grid-cols-2 md:grid-cols-4 md:gap-y-5  gap-5 bg-[#FFF5CB] px-10 md:px-20 py-10">
