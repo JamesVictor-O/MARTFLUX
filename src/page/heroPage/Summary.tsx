@@ -4,8 +4,8 @@ import Card from "/assets/card.png"
 const Summary = () => {
   return (
    <div className="w-full">
-        <div className=" w-full px-10 h-[8rem] flex items-center align-middle justify-center  ">
-            <h2 className="md:text-3xl  font-semibold  mb-2  font-wix w-[26rem] mr-4">What we offer?</h2>
+        <div className=" w-full px-10 md:h-[8rem] flex items-center align-middle justify-center  ">
+            <h2 className="md:text-3xl  font-semibold  mb-2  font-wix md:w-[26rem] mr-4">What we offer?</h2>
             <span className="mx-4 h-[6rem] border-r border-black"></span>
             <p className="text-base font-normal text-gray-500 font-wix text-left ">With ease find the latest procuts missing in your homes, office and workshops.</p>
         </div>

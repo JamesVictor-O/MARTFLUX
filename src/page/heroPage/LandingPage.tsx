@@ -23,7 +23,7 @@ const LandingPage = () => {
            <BillBoard/>
         </div> */}
 
-      <div className=" flex flex-col-reverse md:flex-row items-center w-[90%]  overflow-visible mt-14 ">
+      <div className=" flex flex-col-reverse md:flex-row items-center w-[90%]  overflow-visible md:mt-14">
         {/* hand bag image */}
       <div className="hidden md:block  w-[3rem] md:w-[16rem] lg:ml-44">
         <img src={advertImage} alt="" />
@@ -36,7 +36,7 @@ const LandingPage = () => {
         </div>
 
         {/* crypto image */}
-        <div className=" md:absolute h-[24rem] md:w-[20rem] lg:w-[25rem] right-0 top-14 ml-20 md:ml-0">
+        <div className=" md:absolute md:h-[24rem] md:w-[20rem] lg:w-[25rem] right-0 md:top-14 ml-20 top-0 md:ml-0">
         <img src={cryptoImage} alt="" className="w-full h-full object-contain"/>
       </div>
       </div>
