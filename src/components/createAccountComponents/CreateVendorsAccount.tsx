@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { schema2 } from "../../external";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 interface BusinessValueProps{
   businessName?: string;
   businessRegNo?: string;
@@ -9,11 +12,11 @@ interface BusinessValueProps{
 }
 
 interface CreateAccountProps{
-  handleNext:()=> void;
+  handlePage_progresion:()=> void;
 }
 
 
-const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
+const CreateVendorsAccount = ({handlePage_progresion}:CreateAccountProps) => {
   const [vendorsDetails, setVendorsDetails] = useState({
     businessName: "",
     businessRegNo: "",
@@ -23,8 +26,8 @@ const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
     businessDoc: "",
   });
 
-  const [formError,setFormErrors]=useState<BusinessValueProps>({})
-  // const [isCreateAccSuccesful,setIsCreateAccSuccesful]=useState<boolean>(false)
+
+  const {register,handleSubmit,formState:{errors},}=useForm({resolver:yupResolver(schema2)})
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -34,41 +37,15 @@ const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
       [e.target.name]: e.target.value,
     }));
   };
-  const handleSubmitForm=(e:React.FormEvent<HTMLFormElement>)=>{
-      e.preventDefault()
-      console.log("okay")
-      setFormErrors(validateForm(vendorsDetails))
 
+ const onSubmit=()=>{
+   handlePage_progresion()
+ }
 
-  }
-
-  const validateForm=(values:BusinessValueProps)=>{
-     const regex=/^\S+@\S+\.\S+$/;
-     let error: Partial<BusinessValueProps>={}
-     if(!values.businessName){
-        error.businessName="valid business name is required"
-     }
-     if(!values.businessEmail || !regex.test(values.businessEmail)){
-       error.businessEmail="Valid business email is required"
-     }
-     if(!values.businessAddress){
-      error.businessAddress="Valid business Address required"
-     }
-     if(!values.businessID){
-      error.businessID="Valid business ID required"
-     }
-     if(!values.businessDoc){
-      error.businessDoc="Valid document required"
-     }
-     if(!values.businessRegNo){
-      error.businessRegNo="Valid business registration number is required"
-     }
-     return error;
-  }
 
   return (
     <div>
-      <div className="w-full h-full md:w-[30rem] md:h-[45rem] md:rounded-3xl md:border border-[#B5B1B1] p-5 md:p-10">
+      <div className="w-full h-full md:w-[30rem] md:h-[45rem] md:rounded-3xl border border-[#B5B1B1] p-5 md:p-10">
         <div className="h-20 flex flex-col justify-between">
           <h2 className="text-[#0634D8] font-semibold leading-10 text-3xl text-center md:text-left font-wix">
             Create an account
@@ -77,21 +54,23 @@ const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
             Set an account up for free. and enjoy free delivery
           </p>
           {/* forms */}
-          <div className="w-[90%] md:w-full h-full mt-3 ml-3">
-            <form className="md:border-b pb-4 border-[#BBBBBB]" onSubmit={handleSubmitForm}>
+          <div className="bg-orange-200 md:w-full h-full mt-3 ml-3">
+
+            <form className="md:border-b pb-4 border-[#BBBBBB]" onSubmit={handleSubmit(onSubmit)}>
               <div className="w-full flex flex-col items-start mb-3">
                 <label className="text-[#2E3A59] text-sm font-semibold mb-1 font-wix">
                   Business Name
                 </label>
                 <input
-                  name="businessName"
+                 {...register("businessName")}
+                  id="businessName"
                   type="text"
                   value={vendorsDetails.businessName}
                   placeholder="provide a unique business name"
                   className="w-full border border-gray-300 outline-none h-9 px-2 rounded  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
-                <p className="text-red-600 text-xs font-wix">{formError.businessName}</p>
+                <p className="text-red-600 text-xs font-wix">{errors.businessName?.message}</p>
               </div>
               
               <div className="w-full flex flex-col items-start mb-3">
@@ -99,42 +78,45 @@ const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
                   Business Registration Number
                 </label>
                 <input
-                  name="businessRegNo"
+                {...register("businessRegNo")}
+                  id="businessRegNo"
                   value={vendorsDetails.businessRegNo}
                   type="text"
                   placeholder="business registered number"
                   className="w-full border border-gray-300 outline-none h-9 px-2 rounded  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
-                 <p className="text-red-600 text-xs font-wix">{formError.businessRegNo}</p>
+                 <p className="text-red-600 text-xs font-wix">{errors.businessRegNo?.message}</p>
               </div>
               <div className="w-full flex flex-col items-start mb-3">
                 <label className="text-[#2E3A59] text-sm font-semibold mb-1 font-wix">
                   Business Email
                 </label>
                 <input
-                  name="businessEmail"
+                {...register("businessEmail")}
+                  id="businessEmail"
                   value={vendorsDetails.businessEmail}
                   type="text"
                   placeholder="registered business name"
                   className="w-full border border-gray-300 outline-none h-9 px-2 rounded  text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
-                 <p className="text-red-600 text-xs font-wix">{formError.businessEmail}</p>
+                 <p className="text-red-600 text-xs font-wix">{errors.businessEmail?.message}</p>
               </div>
               <div className="w-full flex flex-col items-start mb-3">
                 <label className="text-[#2E3A59] text-sm font-semibold mb-1 font-wix">
                   Business Address
                 </label>
                 <input
-                value={vendorsDetails.businessAddress}
-                  name="businessAddress"
+                {...register("businessAddress")}
+                  value={vendorsDetails.businessAddress}
+                  id="businessAddress"
                   type="text"
                   placeholder="business address"
                   className="w-full border border-gray-300 outline-none h-9 px-2 rounded text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out shadow-sm"
                   onChange={(e) => handleInputChange(e)}
                 />
-                 <p className="text-red-600 text-xs font-wix">{formError.businessAddress}</p>
+                 <p className="text-red-600 text-xs font-wix">{errors.businessAddress?.message}</p>
               </div>
 
               <div className="w-full flex flex-col items-start mb-6 font-wix">
@@ -143,8 +125,9 @@ const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
                 </label>
                 <div className="flex flex-col md:flex-row md:items-center md:space-x-3 mt-2">
                   <select
+                  {...register("businessID")}
                   value={vendorsDetails.businessID}
-                    name="businessID"
+                    id="businessID"
                     className="bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-gray-700 text-lg outline-none transition focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
                     onChange={(e) => handleInputChange(e)}
                     defaultValue="" // Reset to ensure "Select an ID" is selected initially
@@ -156,19 +139,21 @@ const CreateVendorsAccount = ({handleNext}:CreateAccountProps) => {
                     <option>NIN</option>
                     <option>Voter's Card</option>
                   </select>
+                  <p className="text-red-600 text-xs font-wix">{errors.businessID?.message}</p>
 
                   <input
+                  {...register("businessDoc")}
                     value={vendorsDetails.businessDoc}
                     type="file"
-                    name="businessDoc"
+                    id="businessDoc"
                     className="w-full md:w-[14rem] border border-gray-300 rounded-lg px-3 py-2 mt-2 md:mt-0 shadow-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     onChange={(e) => handleInputChange(e)}
                   />
-                   {/* <p className="text-red-600 text-xs font-wix">{formError.businessDoc}</p> */}
+                   <p className="text-red-600 text-xs font-wix">{errors.businessDoc?.message}</p>
                 </div>
               </div>
               <div className="w-full h-11 flex flex-col mt-14 md:mt-0 items-start mb-2 rounded-lg overflow-hidden">
-                <button type="submit" className="w-full h-full bg-[#141B34] text-white" onClick={handleNext}>
+                <button type="submit" className="w-full h-full bg-[#141B34] text-white">
                   continue
                 </button>
               </div>

@@ -2,25 +2,34 @@ import shopIcon from "/shop.svg";
 import populationIcon from "/population.svg";
 import {  useState } from "react";
 import { useNavigate } from "react-router";
-// import { SliderContext } from "../../context/Context";
+import { set_accountType } from "../../context/redux/counter/counterSlice";
+import { useDispatch,} from "react-redux";
+
 
 const AccountType = () => {
-  // const { setAccountType } = useContext(SliderContext);
+
+  const dispatch=useDispatch()
   const navigate=useNavigate()
+
+
   const [selectedCheckbox, setSelectedCheckbox] = useState<Number | null>(null);
   // setting account type
-  const handle_account_type = (nextPage: number) => {
+  const handle_account_type = (nextPage: number, account_type:string) => {
+   
     setSelectedCheckbox(nextPage);
+    dispatch(set_accountType(account_type))
+   
   };
   // navigating to the next form
 
   const handle_Next = () => {
-    if (selectedCheckbox === null) return alert("select categorie please");
-    if(selectedCheckbox == 1){
-          navigate('createShopperAccount')
-    }else{
-      navigate('createVendorAccount')
-    }
+    // if (selectedCheckbox === null) return alert("select categorie please");
+    // if(selectedCheckbox == 1){
+    //       navigate('createShopperAccount')
+    // }else{
+    //   navigate('createVendorAccount')
+    // }
+    navigate('createVendorAccount')
   };
 
   return (
@@ -49,7 +58,8 @@ const AccountType = () => {
           </div>
 
           <input
-            onChange={() => handle_account_type(1)}
+             
+            onChange={() => handle_account_type(1, "shopper")}
             checked={selectedCheckbox == 1}
             type="radio"
             name="1"
@@ -75,7 +85,7 @@ const AccountType = () => {
           </div>
 
           <input
-            onChange={() => handle_account_type(2)}
+            onChange={() => handle_account_type(2,"vendor")}
             checked={selectedCheckbox == 2}
             // onChange={handle_account_type}
             type="radio"

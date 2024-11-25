@@ -1,12 +1,25 @@
 // import createImage from "/createImage.png"
 import VerifyEmail from "../../components/EmailVerification"
 import VendorInformationSection from "./VendorInformationSection"
+import CreateAccountForm from "../../components/createAccountComponents/CreateAccountForm"
 import { useState } from "react"
+import { RootState } from "../../context/redux/configureStore";
+import CreateVendorsAccount from "../../components/createAccountComponents/CreateVendorsAccount"
+import { useDispatch, useSelector } from "react-redux";
+
 const CreateVendorAccountPage = () => {
-  const [currentIndex,_setCurrentIndex]=useState<number>(0)
+  const [currentIndex,setCurrentIndex]=useState<number>(0)
+  let accountType = useSelector((state: RootState) => state.counter.accountType);
+  const handlePage_progresion=()=>{
+    setCurrentIndex(prev => (
+      prev < allComponents.length ? prev+1 : prev
+    ))
+  }
 
   let allComponents=[
-    <VendorInformationSection/>,
+    <CreateAccountForm handlePage_progresion={handlePage_progresion}/>,
+    ...(accountType==="vendor"? [<VendorInformationSection handlePage_progresion={handlePage_progresion}/>]: []),
+    ,
     <VerifyEmail/>
   ]
   return (

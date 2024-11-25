@@ -4,7 +4,7 @@ import HeroPage from "./page/heroPage/HeroPage";
 import CreateAccount from "./page/createAccountPage/CreateAccount";
 import CreateAccountLandingPage from "./page/createAccountPage/CreateAccountLandingPage";
 import CreateVendorAccountPage from "./page/createVendorsAccount/createVendorsAccountPage";
-import CreateShopperAcccount from "./page/createShopperAccount.tsx/CreateShopperAcccount";
+// import CreateShopperAcccount from "./page/createShopperAccount.tsx/CreateShopperAcccount";
 import { Provider } from "react-redux";
 import { store } from "./context/redux/configureStore";
 
@@ -27,10 +27,10 @@ function App() {
             path="createVendorAccount"
             element={<CreateVendorAccountPage />}
           />
-          <Route
+          {/* <Route
             path="createShopperAccount"
             element={<CreateShopperAcccount />}
-          />
+          /> */}
         </Route>
         <Route path="aboutUs" element={<AboutUs/>}/>
       </Route>

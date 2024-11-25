@@ -5,7 +5,7 @@ const VerifyEmail = () => {
 
   return (
     
-      <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
+      <div className="bg-red-300 h-80 md:h-full rounded-lg shadow-md p-6 w-full max-w-md">
         <h1 className="text-lg font-semibold text-blue-600">Verify email address</h1>
         <p className="text-sm text-gray-700 mt-2">
           To verify your email, we’ve sent a One Time Password (OTP) to{" "}

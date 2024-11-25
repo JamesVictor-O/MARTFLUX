@@ -8,7 +8,6 @@ const VendorInformationSection = () => {
     if(nextIndex < requiredDetails.length){
       setNextIndex(prev => prev + 1)
     }
-    console.log(nextIndex)
   }
   let  requiredDetails=[
     <CreateVendorsAccount handleNext={handleNext} />,
@@ -16,7 +15,7 @@ const VendorInformationSection = () => {
     <SelectIndustry/>
   ]
   return (
-    <div>
+    <div className="bg-red-300 w-[90%] h-full">
         {requiredDetails[nextIndex]}
       {/* <CreateVendorsAccount/> */}
     </div>
