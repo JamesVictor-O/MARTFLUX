@@ -1,6 +1,6 @@
 import { useState } from "react"
 import ListingIndustry from "../../components/ListingIndustry"
-import CreateVendorsAccount from "../../components/createAccountComponents/CreateVendorsAccount"
+import BusinessAccountForm from "../../components/createAccountComponents/BusinessAccountForm"
 import SelectIndustry from "../../components/SelectIndustry"
 const VendorInformationSection = () => {
   const [nextIndex,setNextIndex]=useState<number>(0)
@@ -8,15 +8,14 @@ const VendorInformationSection = () => {
     if(nextIndex < requiredDetails.length){
       setNextIndex(prev => prev + 1)
     }
-    console.log(nextIndex)
   }
   let  requiredDetails=[
-    <CreateVendorsAccount handleNext={handleNext} />,
+    <BusinessAccountForm handleNext={handleNext} />,
     <ListingIndustry/>,
     <SelectIndustry/>
   ]
   return (
-    <div>
+    <div className=" w-[90%] h-full">
         {requiredDetails[nextIndex]}
       {/* <CreateVendorsAccount/> */}
     </div>

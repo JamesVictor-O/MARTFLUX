@@ -66,16 +66,19 @@ const Header = () => {
             <span className="text-white ml-2">0</span>
           </div>
 
-          <div className="hidden md:flex flex-row items-center justify-between w-[90%] h-9 rounded-md text-black">
-            <button className="text-base hover:bg-blue-200 h-full px-2 rounded-md ">
-              Sign in as vendor
-            </button>
+          <div className="hidden md:flex flex-row items-center justify-between w-[60%] h-9 rounded-md text-black">
             <Link
               to={"createAccount"}
-              className="w-[50%] border-[#F3C300] border h-full rounded-md hover:bg-blue-200 hover:border-none"
+              className="w-[40%] border-[#F3C300] border h-full rounded-md hover:bg-blue-200 hover:border-none"
             >
-              <button className="w-full border h-full">Login</button>
+              <button className="w-full border h-full">Sign Up</button>
             </Link>
+            <Link to={""} className="w-[40%] border-[#F3C300] border h-full rounded-md hover:bg-blue-200 hover:border-none">
+            <button className="text-base hover:bg-blue-200 w-full h-full px-2 rounded-md ">
+              Login
+            </button>
+            </Link>
+            
           </div>
 
           <div

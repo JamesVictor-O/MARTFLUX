@@ -1,54 +1,52 @@
 import React, { useState } from "react";
-interface ShopperDetailsProps{
-  shopperName:string,
-  shopperEmail:string,
-  shopperPassword:string,
-  shopperConfirmPassword:string
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "../../external";
+
+interface ShopperDetailsProps {
+  shopperName: string;
+  shopperEmail: string;
+  shopperPassword: string;
+  shopperConfirmPassword: string;
 }
 
+interface handlePageProps{
+  handlePage_progresion:()=> void
+}
 
+const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-const CreateAccountForm = () => {
-  let initialState={
-    shopperName:"",
-    shopperEmail:"",
-    shopperPassword:"",
-    shopperConfirmPassword:""
-  }
-  const [shopperDetails,setShopperDetails]=useState<ShopperDetailsProps>(initialState)
-  const [errorMessages,setErrorMessages]=useState<ShopperDetailsProps | {}>({})
+  let initialState = {
+    shopperName: "",
+    shopperEmail: "",
+    shopperPassword: "",
+    shopperConfirmPassword: "",
+  };
+  const [shopperDetails, setShopperDetails] = useState<ShopperDetailsProps>(initialState);
+ 
 
-  const handle_change=(e:React.ChangeEvent<HTMLInputElement>)=>{
-    setShopperDetails(prev=>({
+  const handle_change = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setShopperDetails((prev) => ({
       ...prev,
-      [e.target.name]:e.target.value
-    }))
-  }
+      [e.target.id]: e.target.value,
+    }));
+  };
 
-  const handle_submit=(e:React.FormEvent<HTMLFormElement>)=>{
-    e.preventDefault();
-    setErrorMessages(validate(shopperDetails))
-  }
+  const onSubmit = (_e:any) => {
+    // e.preventDefault();
+    // setErrorMessages(validate(shopperDetails))
+    handlePage_progresion()
+  };
 
-  const validate=(details:ShopperDetailsProps)=>{
-    const regex=/^\S+@\S+\.\S+$/;
-        let errorMessages: Partial<ShopperDetailsProps>={}
-        if(details.shopperName== "" || details.shopperName.trim().length !==6){
-          errorMessages.shopperName="invalid name, fullName required"
-        }
-        if(details.shopperEmail=="" ||!regex.test(details.shopperEmail)){
-             errorMessages.shopperEmail="invalid email account, please provide a valid email"
-        }
-        if(details.shopperPassword==""){
-          errorMessages.shopperEmail="please provide a strong password"
-        }
-        if(details.shopperConfirmPassword=="" || details.shopperConfirmPassword !== details.shopperPassword){
-          errorMessages.shopperEmail="please confirm password"
-        }
-
-        return errorMessages;
-  }
-
+  
   // useEffect(()=>{console.log(shopperDetails)},[shopperDetails])
   return (
     <div className="w-full md:w-[30rem] h-[40rem] rounded-3xl md:border border-[#B5B1B1] p-5 md:p-10">
@@ -60,62 +58,104 @@ const CreateAccountForm = () => {
           Set an account up for free. and enjoy free delivery
         </p>
         {/* forms */}
+
         <div className="w-full h-full mt-3">
-          <form className="md:border-b pb-4 border-[#BBBBBB]" onSubmit={handle_submit}>
+          <form
+            className="md:border-b pb-4 border-[#BBBBBB]"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+
+
             <div className="w-full h-20 flex flex-col items-start mb-2">
               <label className="text-[#172248] text-base font-normal leading-6">
                 Your Name
               </label>
               <input
-              onChange={handle_change}
-              value={shopperDetails.shopperName}
-                name="shopperName"
+                {...register("shopperName", { required: "user name required" })}
+                onChange={handle_change}
+                value={shopperDetails.shopperName}
+                id="shopperName"
                 type="text"
                 placeholder="input your name"
                 className="w-full border border-[#ADADAD] outline-none h-11 px-2 rounded-md mt-2 shadow"
               />
-              <p className="text-red-600 text-xs font-wix">{"shopperName" in errorMessages ? errorMessages.shopperName : ""}</p>
+              <p className="text-red-600 text-xs font-wix">
+                {errors.shopperName?.message}
+              </p>
             </div>
+
             <div className="w-full h-20 flex flex-col items-start mb-2">
               <label className="text-[#172248] text-base font-normal leading-6">
                 Your Email
               </label>
               <input
-              onChange={handle_change}
-              value={shopperDetails.shopperEmail}
-                name="shopperEmail"
+                {...register("shopperEmail", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: "Invalid email address",
+                  },
+                })}
+                onChange={handle_change}
+                value={shopperDetails.shopperEmail}
+                id="shopperEmail"
                 type="text"
                 placeholder="enter your email"
                 className="w-full border border-[#ADADAD] outline-none h-11 px-2 rounded-md mt-2 shadow"
               />
+               <p className="text-red-600 text-xs font-wix">
+                {errors.shopperEmail?.message}
+              </p>
             </div>
+
             <div className="w-full h-20 flex flex-col items-start mb-2">
               <label className="text-[#172248] text-base font-normal leading-6">
                 Password
               </label>
               <input
-              onChange={handle_change}
-              value={shopperDetails.shopperPassword}
-                name="shopperPassword"
+                {...register("shopperPassword", {
+                  required: "password is required",
+                  minLength: {
+                    value: 6,
+                    message: "password must be greater than 6",
+                  },
+                })}
+                onChange={handle_change}
+                value={shopperDetails.shopperPassword}
+                id="shopperPassword"
                 type="text"
                 placeholder="At least 10 characters"
                 className="w-full border border-[#ADADAD] outline-none h-11 px-2 rounded-md mt-2 shadow"
               />
+               <p className="text-red-600 text-xs font-wix">
+                {errors.shopperPassword?.message}
+              </p>
             </div>
-            <div className="w-full h-20 flex flex-col items-start mb-2">
+
+
+            <div className="w-full h-24 flex flex-col items-start mb-2">
               <label className="text-[#172248] text-lg font-normal leading-6">
                 Re-enter Password
               </label>
               <input
-              onChange={handle_change}
-              name="shopperConfirmPassword"
-               value={shopperDetails.shopperConfirmPassword}
+                {...register("shopperConfirmPassword", {
+                  required: "please confirm  your password",
+                  validate: value => value === watch('shopperPassword') || 'Passwords do not match'
+                })}
+                onChange={handle_change}
+                id="shopperConfirmPassword"
+                value={shopperDetails.shopperConfirmPassword}
                 type="text"
                 placeholder="At least 10 characters"
                 className="w-full border border-[#ADADAD] outline-none h-11 px-2 rounded-md mt-2 shadow"
               />
+               <p className="text-red-600 text-xs font-wix">
+                {errors.shopperConfirmPassword?.message}
+              </p>
             </div>
-            <div className="w-full h-11 flex flex-col items-start mb-2 rounded-lg overflow-hidden">
+
+
+            <div className="w-full h-11 flex flex-col items-start mt-4 mb-2 rounded-lg overflow-hidden">
               <button className="w-full h-full bg-[#141B34] text-white">
                 continue
               </button>

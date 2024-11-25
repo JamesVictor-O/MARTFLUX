@@ -356,7 +356,7 @@ const AboutUs = () => {
       {/* sign up section */}
       <section className="w-full px-5 md:px-20 font-wix mt-10 flex flex-col items-center my-8">
         <div className="flex flex-col items-center font-wix ">
-          <h2 className="text-3xl font-bold my-2">The only one stop for qualty products</h2>
+          <h2 className="text-3xl font-bold my-2 text-center">The only one stop for qualty products</h2>
           <p className="font-medium text-gray-400 text-base md:text-xl">
           We are here to meet our your needs  {" "}
           </p>
