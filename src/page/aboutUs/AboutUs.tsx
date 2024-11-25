@@ -1,3 +1,6 @@
+import CoreValue from "/public/coreValue.png"
+import team from "/public/team.png"
+import star2 from "/public/star2.png"
 const AboutUs = () => {
   return (
     <div className="w-full h-full mb-6">
@@ -40,7 +43,7 @@ const AboutUs = () => {
           {/* core value image */}
           <div className="w-full md:w-[30%] h-full rounded-lg overflow-hidden">
             <img
-              src="/public/coreValue.png"
+              src={CoreValue}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -94,7 +97,7 @@ const AboutUs = () => {
           <div className=" grid grid-cols-1 md:grid-cols-3 gap-20">
             <div className="flex flex-col">
               <div>
-                <img src="/public/team.png" alt="" />
+                <img src={team} alt="" />
               </div>
               <div className="mt-5">
                 <div>
@@ -113,7 +116,7 @@ const AboutUs = () => {
             </div>
             <div className="flex flex-col ">
               <div>
-                <img src="/public/team.png" alt="" />
+                <img src={team} alt="" />
               </div>
               <div className="mt-5">
                 <div>
@@ -132,7 +135,7 @@ const AboutUs = () => {
             </div>
             <div className="flex flex-col">
               <div>
-                <img src="/public/team.png" alt="" />
+                <img src={team} alt="" />
               </div>
               <div className="mt-5">
                 <div>
@@ -169,7 +172,7 @@ const AboutUs = () => {
             <div className="flex flex-row items-center w-[60%]">
               <div className="w-[3rem] rounded-[50%] overflow-hidden">
                 <img
-                  src="/public/team.png"
+                  src={team}
                   alt=""
                   className="object-contain w-full h-full"
                 />
@@ -189,22 +192,69 @@ const AboutUs = () => {
             {/* customer rating */}
             <div className="flex flex-row items-center">
               <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+              src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+                src={star2}
+                alt=""
+                className="text-yellow-600 w-[1rem] ml-2"
+              />
+            </div>
+          </div>
+
+          <div className="w-[21rem] bg-gradient-to-r from-[#FBDEF3] to-[#b5a8b1] p-4 px-7 rounded-md">
+            {/* customer details */}
+            <div className="flex flex-row items-center w-[60%]">
+              <div className="w-[3rem] rounded-[50%] overflow-hidden">
+                <img
+                  src={team}
+                  alt=""
+                  className="object-contain w-full h-full"
+                />
+              </div>
+              <div className="ml-3 w-full">
+                <h2 className="font-bold text-lg font-wix">Dada moses</h2>
+                <p className="font-normal text-base">Customer</p>
+              </div>
+            </div>
+            {/* customer review */}
+            <p className="font-wix my-4">
+              I recently shopped at MartFlux and had a positive experience, it
+              was easy to navigate with a great search feature, impressive
+              detailed descriptions and quality images helped in
+              decision-making.
+            </p>
+            {/* customer rating */}
+            <div className="flex flex-row items-center">
+              <img
+                src={star2}
+                alt=""
+                className="text-yellow-600 w-[1rem] ml-2"
+              />
+              <img
+              src={star2}
+                alt=""
+                className="text-yellow-600 w-[1rem] ml-2"
+              />
+              <img
+                src={star2}
+                alt=""
+                className="text-yellow-600 w-[1rem] ml-2"
+              />
+              <img
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
@@ -236,69 +286,22 @@ const AboutUs = () => {
             {/* customer rating */}
             <div className="flex flex-row items-center">
               <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+              src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
-                alt=""
-                className="text-yellow-600 w-[1rem] ml-2"
-              />
-            </div>
-          </div>
-
-          <div className="w-[21rem] bg-gradient-to-r from-[#FBDEF3] to-[#b5a8b1] p-4 px-7 rounded-md">
-            {/* customer details */}
-            <div className="flex flex-row items-center w-[60%]">
-              <div className="w-[3rem] rounded-[50%] overflow-hidden">
-                <img
-                  src="/public/team.png"
-                  alt=""
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <div className="ml-3 w-full">
-                <h2 className="font-bold text-lg font-wix">Dada moses</h2>
-                <p className="font-normal text-base">Customer</p>
-              </div>
-            </div>
-            {/* custmer review */}
-            <p className="font-wix my-4">
-              I recently shopped at MartFlux and had a positive experience, it
-              was easy to navigate with a great search feature, impressive
-              detailed descriptions and quality images helped in
-              decision-making.
-            </p>
-            {/* customer rating */}
-            <div className="flex flex-row items-center">
-              <img
-                src="/public/star 2.png"
-                alt=""
-                className="text-yellow-600 w-[1rem] ml-2"
-              />
-              <img
-                src="/public/star 2.png"
-                alt=""
-                className="text-yellow-600 w-[1rem] ml-2"
-              />
-              <img
-                src="/public/star 2.png"
-                alt=""
-                className="text-yellow-600 w-[1rem] ml-2"
-              />
-              <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
@@ -329,22 +332,22 @@ const AboutUs = () => {
             {/* customer rating */}
             <div className="flex flex-row items-center">
               <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+              src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
               <img
-                src="/public/star 2.png"
+                src={star2}
                 alt=""
                 className="text-yellow-600 w-[1rem] ml-2"
               />
