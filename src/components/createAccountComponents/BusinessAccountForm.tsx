@@ -2,21 +2,14 @@ import React, { useState } from "react";
 import { schema2 } from "../../external";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-interface BusinessValueProps{
-  businessName?: string;
-  businessRegNo?: string;
-  businessEmail?: string;
-  businessAddress?: string;
-  businessID?: string;
-  businessDoc?: string;
-}
+
 
 interface CreateAccountProps{
-  handlePage_progresion:()=> void;
+  handleNext:()=> void;
 }
 
 
-const CreateVendorsAccount = ({handlePage_progresion}:CreateAccountProps) => {
+const BusinessAccountForm = ({handleNext}:CreateAccountProps) => {
   const [vendorsDetails, setVendorsDetails] = useState({
     businessName: "",
     businessRegNo: "",
@@ -39,7 +32,7 @@ const CreateVendorsAccount = ({handlePage_progresion}:CreateAccountProps) => {
   };
 
  const onSubmit=()=>{
-   handlePage_progresion()
+  handleNext()
  }
 
 
@@ -48,13 +41,13 @@ const CreateVendorsAccount = ({handlePage_progresion}:CreateAccountProps) => {
       <div className="w-full h-full md:w-[30rem] md:h-[45rem] md:rounded-3xl border border-[#B5B1B1] p-5 md:p-10">
         <div className="h-20 flex flex-col justify-between">
           <h2 className="text-[#0634D8] font-semibold leading-10 text-3xl text-center md:text-left font-wix">
-            Create an account
+            Create business account
           </h2>
           <p className="text-base font-normal leading-7 text-center md:text-left font-wix">
             Set an account up for free. and enjoy free delivery
           </p>
           {/* forms */}
-          <div className="bg-orange-200 md:w-full h-full mt-3 ml-3">
+          <div className=" md:w-full h-full mt-3 ml-3">
 
             <form className="md:border-b pb-4 border-[#BBBBBB]" onSubmit={handleSubmit(onSubmit)}>
               <div className="w-full flex flex-col items-start mb-3">
@@ -166,7 +159,7 @@ const CreateVendorsAccount = ({handlePage_progresion}:CreateAccountProps) => {
               </div>
             </form>
             <p className="text-sm font-medium leading-5 mt-2">
-              Already have an account?{" "}
+                Already have an account?{" "}
               <span className="text-blue-600">Sign In</span>
             </p>
           </div>
@@ -176,4 +169,4 @@ const CreateVendorsAccount = ({handlePage_progresion}:CreateAccountProps) => {
   );
 };
 
-export default CreateVendorsAccount;
+export default BusinessAccountForm;

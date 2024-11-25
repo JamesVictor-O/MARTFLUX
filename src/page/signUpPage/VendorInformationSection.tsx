@@ -1,6 +1,6 @@
 import { useState } from "react"
 import ListingIndustry from "../../components/ListingIndustry"
-import CreateVendorsAccount from "../../components/createAccountComponents/CreateVendorsAccount"
+import BusinessAccountForm from "../../components/createAccountComponents/BusinessAccountForm"
 import SelectIndustry from "../../components/SelectIndustry"
 const VendorInformationSection = () => {
   const [nextIndex,setNextIndex]=useState<number>(0)
@@ -10,12 +10,12 @@ const VendorInformationSection = () => {
     }
   }
   let  requiredDetails=[
-    <CreateVendorsAccount handleNext={handleNext} />,
+    <BusinessAccountForm handleNext={handleNext} />,
     <ListingIndustry/>,
     <SelectIndustry/>
   ]
   return (
-    <div className="bg-red-300 w-[90%] h-full">
+    <div className=" w-[90%] h-full">
         {requiredDetails[nextIndex]}
       {/* <CreateVendorsAccount/> */}
     </div>

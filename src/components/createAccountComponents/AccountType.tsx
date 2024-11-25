@@ -23,13 +23,7 @@ const AccountType = () => {
   // navigating to the next form
 
   const handle_Next = () => {
-    // if (selectedCheckbox === null) return alert("select categorie please");
-    // if(selectedCheckbox == 1){
-    //       navigate('createShopperAccount')
-    // }else{
-    //   navigate('createVendorAccount')
-    // }
-    navigate('createVendorAccount')
+    navigate('signup')
   };
 
   return (
