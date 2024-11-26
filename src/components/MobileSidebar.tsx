@@ -39,12 +39,12 @@ const MobileSidebar = () => {
               Home
             </Link>
           <Link
-            id="whyUs"
-            to={"/"}
+            id="shop"
+            to={"marketplace"}
             className="border-b-2 py-2  px-3 rounded mb-3"
             onClick={() => dispatch(toggle_isMenuOpen())}
           >
-            Why us
+            Shop
           </Link>
           <Link 
           id="about"
@@ -68,7 +68,7 @@ const MobileSidebar = () => {
             Sign up
           </button>
           <button className="mt-3 border border-blue-300 w-full py-2 rounded-md">
-            Sign up
+            Log in
           </button>
         </div>
       </div>
