@@ -44,15 +44,17 @@ const Header = () => {
                 Home
               </li>
             </Link>
+            
+            <Link to={"marketplace"}>
+              <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
+                Shop{" "}
+              </li>
+            </Link>
             <Link to={"aboutUs"}>
               <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
                 About
               </li>
             </Link>
-
-            <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
-              Why Us{" "}
-            </li>
           </ul>
         </div>
         {/* ------------------cart icon  ----------------------------- */}
@@ -73,12 +75,14 @@ const Header = () => {
             >
               <button className="w-full border h-full">Sign Up</button>
             </Link>
-            <Link to={""} className="w-[40%] border-[#F3C300] border h-full rounded-md hover:bg-blue-200 hover:border-none">
-            <button className="text-base hover:bg-blue-200 w-full h-full px-2 rounded-md ">
-              Login
-            </button>
+            <Link
+              to={""}
+              className="w-[40%] border-[#F3C300] border h-full rounded-md hover:bg-blue-200 hover:border-none"
+            >
+              <button className="text-base hover:bg-blue-200 w-full h-full px-2 rounded-md ">
+                Login
+              </button>
             </Link>
-            
           </div>
 
           <div

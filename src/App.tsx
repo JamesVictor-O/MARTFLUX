@@ -6,6 +6,7 @@ import CreateAccountLandingPage from "./page/createAccountPage/CreateAccountLand
 import SignUpPage from "./page/signUpPage/signUpPage";
 import { Provider } from "react-redux";
 import { store } from "./context/redux/configureStore";
+import MarketPlace from "./page/marketPlace/MarketPlace";
 
 import {
   createBrowserRouter,
@@ -28,6 +29,7 @@ function App() {
           />
         </Route>
         <Route path="aboutUs" element={<AboutUs/>}/>
+        <Route path="marketplace" element={<MarketPlace/>} />
       </Route>
     )
   );
