@@ -7,7 +7,9 @@ import SignUpPage from "./page/signUpPage/signUpPage";
 import { Provider } from "react-redux";
 import { store } from "./context/redux/configureStore";
 import MarketPlace from "./page/marketPlace/MarketPlace";
-
+import CheckoutPage from "./page/checkoutPage/CheckoutPage";
+import PaymentGateWay from "./components/paymentPage/PaymentGateWay";
+import VendorDashBoard from "./components/vendorDashBoard/vendorDashBoard";
 import {
   createBrowserRouter,
   Route,
@@ -30,6 +32,9 @@ function App() {
         </Route>
         <Route path="aboutUs" element={<AboutUs/>}/>
         <Route path="marketplace" element={<MarketPlace/>} />
+        <Route path="payment" element={<PaymentGateWay/>} />
+        <Route path="vendorDashboard" element={<VendorDashBoard/>} />
+        <Route path="checkout" element={<CheckoutPage/>}/>
       </Route>
     )
   );

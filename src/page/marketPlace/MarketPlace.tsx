@@ -6,7 +6,7 @@ import CategorieComponent from "../../components/marketplaceComponents/Categorie
 
 const MarketPlace = () => {
   return (
-    <div className="w-full h-full bg-gray-50">
+    <div className="w-full h-full bg-gray-50 mb-10">
       <BillBoard />
       <CategorieComponent/>
       {/* Feature products */}
