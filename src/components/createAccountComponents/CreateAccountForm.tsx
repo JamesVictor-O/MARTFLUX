@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import {auth,db} from "../../../firebase"
 import { schema } from "../../external";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc,collection, addDoc } from 'firebase/firestore';
 
 interface ShopperDetailsProps {
   shopperName: string;
@@ -40,10 +43,21 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
     }));
   };
 
-  const onSubmit = (_e:any) => {
-    // e.preventDefault();
-    // setErrorMessages(validate(shopperDetails))
-    handlePage_progresion()
+  const onSubmit = async(_e:any) => {
+    try{
+      await createUserWithEmailAndPassword(auth,shopperDetails.shopperEmail,shopperDetails.shopperPassword);
+      handlePage_progresion()
+      // const user=userCredentials.user
+      // storing data in firebase
+      // await setDoc(doc(db, "users", user.uid), {
+      //   email: user.email,
+      //   displayName: shopperDetails.shopperName,
+      // })  
+     
+    }catch(error){
+       console.log("external error"+ error)
+    }
+    // handlePage_progresion()
   };
 
   

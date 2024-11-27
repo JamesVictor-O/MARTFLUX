@@ -3,8 +3,17 @@ import { FaTrash } from "react-icons/fa6";
 
 import { FaMinus,FaPlus } from "react-icons/fa6";
 
+interface ProductProps{
+  product:{
+    id: number,
+    name: string,
+    imageUrl: string,
+    price: number,
+  }
+ 
+}
 
-const Items = ({ product }) => {
+const Items = ({product}:ProductProps) => {
     return (
       <div className="flex flex-row items-center justify-between w-[95%] lg:w-[90%] mb-6 p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
         {/* Image and Details */}
@@ -14,10 +23,6 @@ const Items = ({ product }) => {
               src={product.imageUrl}
               alt={`${product.name} image`}
               className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = "https://via.placeholder.com/150"; // Fallback image
-              }}
             />
           </div>
           <ItemDetails product={product} />
@@ -30,7 +35,7 @@ const Items = ({ product }) => {
             <button className="text-gray-600 hover:text-black">
               <FaMinus />
             </button>
-            <span className="px-4 font-medium text-gray-800">{product.quantity}</span>
+            <span className="px-4 font-medium text-gray-800">3</span>
             <button className="text-gray-600 hover:text-black">
               <FaPlus />
             </button>
@@ -38,7 +43,7 @@ const Items = ({ product }) => {
   
           {/* Price */}
           <span className="font-bold text-lg text-gray-800">
-            ₦{product.price * product.quantity}
+            ₦{}
           </span>
   
           {/* Trash Icon */}

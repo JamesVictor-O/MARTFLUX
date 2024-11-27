@@ -4,12 +4,13 @@ import HeroPage from "./page/heroPage/HeroPage";
 import CreateAccount from "./page/createAccountPage/CreateAccount";
 import CreateAccountLandingPage from "./page/createAccountPage/CreateAccountLandingPage";
 import SignUpPage from "./page/signUpPage/signUpPage";
-import { Provider } from "react-redux";
-import { store } from "./context/redux/configureStore";
+import { useDispatch } from "react-redux";
 import MarketPlace from "./page/marketPlace/MarketPlace";
 import CheckoutPage from "./page/checkoutPage/CheckoutPage";
 import PaymentGateWay from "./components/paymentPage/PaymentGateWay";
 import VendorDashBoard from "./components/vendorDashBoard/vendorDashBoard";
+import LoginPage from "./page/loginPage/LoginPage";
+import { set_user } from "./context/redux/counter/userSlice";
 import {
   createBrowserRouter,
   Route,
@@ -17,8 +18,26 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AboutUs from "./page/aboutUs/AboutUs";
+import { useEffect } from "react";
+import { auth } from "../firebase";
 
 function App() {
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    const unsubscribe=auth.onAuthStateChanged(async(userAuth)=>{
+     if(userAuth){
+       dispatch(set_user(userAuth))
+     }else{
+        dispatch(set_user(null))
+        console.log(userAuth)
+     }
+    })
+
+    return () => {
+      unsubscribe()
+    } 
+  },[])
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
@@ -35,14 +54,14 @@ function App() {
         <Route path="payment" element={<PaymentGateWay/>} />
         <Route path="vendorDashboard" element={<VendorDashBoard/>} />
         <Route path="checkout" element={<CheckoutPage/>}/>
+        <Route path="login" element={<LoginPage/>}/>
       </Route>
     )
   );
 
+  
   return (
-    <Provider store={store}>
         <RouterProvider router={router} />
-    </Provider>
   );
 }
 

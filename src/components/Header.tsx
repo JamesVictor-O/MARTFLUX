@@ -5,15 +5,17 @@ import LogImage from "/logoImage.png";
 import menuItem from "/menu2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
+import { auth } from "../../firebase";
 import { RootState } from "../context/redux/configureStore";
+import { FaCartShopping } from "react-icons/fa6";
+
 import { useDispatch, useSelector } from "react-redux";
 import { toggle_isMenuOpen } from "../context/redux/counter/counterSlice";
 
 const Header = () => {
   let dispatch = useDispatch();
   let isMenuOpen = useSelector((state: RootState) => state.counter.isMenuOpen);
-
-  // const { isMenuOpen, handle_toggle_menu } = useContext(SliderContext);
+  let currentUser=useSelector((state:RootState)=>state.user.currentUser)
   return (
     <div className=" w-full flex flex-row justify-center items-center bg-[#1A2859]">
       <div className="w-full md:w-[85%] md:my-7 h-16 bg-white flex flex-row items-center md:rounded-md align-middle p-2 md:p-5 md:px-10 justify-between">
@@ -44,7 +46,7 @@ const Header = () => {
                 Home
               </li>
             </Link>
-            
+
             <Link to={"marketplace"}>
               <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
                 Shop{" "}
@@ -67,6 +69,27 @@ const Header = () => {
             <img src={solarBag} alt="icon" />
             <span className="text-white ml-2">0</span>
           </div>
+            {currentUser ?  
+           <div className="hidden md:flex flex-row items-center justify-between w-[50%] h-11 rounded-md text-black bg-white shadow-md px-4">
+           <div className="relative flex items-center">
+             <Link to={'checkout'}>
+                <FaCartShopping className="text-gray-700 text-2xl hover:text-blue-500 transition-colors" />
+             </Link>
+             
+             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md">
+               2
+             </span>
+           </div>
+
+          
+           <button
+             className="w-[50%] flex items-center justify-center h-[80%] rounded-md border border-[#F3C300] hover:bg-blue-500 hover:text-white transition-colors"
+             onClick={()=> auth.signOut()}
+           >
+             <button className="w-full h-full font-medium">Sign Out</button>
+           </button>
+         </div>
+          :
 
           <div className="hidden md:flex flex-row items-center justify-between w-[60%] h-9 rounded-md text-black">
             <Link
@@ -76,7 +99,7 @@ const Header = () => {
               <button className="w-full border h-full">Sign Up</button>
             </Link>
             <Link
-              to={""}
+              to={"login"}
               className="w-[40%] border-[#F3C300] border h-full rounded-md hover:bg-blue-200 hover:border-none"
             >
               <button className="text-base hover:bg-blue-200 w-full h-full px-2 rounded-md ">
@@ -84,19 +107,34 @@ const Header = () => {
               </button>
             </Link>
           </div>
+         }
+         
+
+    
 
           <div
-            className=" md:hidden  w-[2rem] mx-2"
-            onClick={() => dispatch(toggle_isMenuOpen())}
-          >
+            className=" md:hidden  w-[5rem] mx-2 flex flex-row items-center justify-between"
+            
+          > 
+          {currentUser && <div className="relative flex items-center">
+              <Link to={'checkout'}>
+                 <FaCartShopping className="text-gray-700 text-2xl hover:text-blue-500 transition-colors" />
+              </Link>
+              
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md">
+                2
+              </span>
+            </div>}
+
             <img
               src={menuItem}
               alt="humbuger"
-              className="w-full h-full object-contain"
+              className=" h-full object-contain w-[2rem]"
+              onClick={() => dispatch(toggle_isMenuOpen())}
             />
           </div>
         </div>
-
+        
         {isMenuOpen && <MobileSidebar />}
       </div>
     </div>
