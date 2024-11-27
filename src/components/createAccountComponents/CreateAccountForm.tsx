@@ -4,7 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import {auth} from "../../../firebase"
 import { schema } from "../../external";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-// import { doc, setDoc,collection, addDoc } from 'firebase/firestore';
+import { db } from "../../../firebase";
+import { RootState } from "../../context/redux/configureStore";
+import { doc, setDoc } from 'firebase/firestore';
+import { useSelector } from "react-redux";
 
 interface ShopperDetailsProps {
   shopperName: string;
@@ -18,6 +21,8 @@ interface handlePageProps{
 }
 
 const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
+    
+   const account_type=useSelector((state:RootState)=> state.counter.accountType)
   const {
     register,
     handleSubmit,
@@ -28,6 +33,7 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
   });
 
   let initialState = {
+    status:account_type,
     shopperName: "",
     shopperEmail: "",
     shopperPassword: "",
@@ -45,14 +51,11 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
 
   const onSubmit = async(_e:any) => {
     try{
-      await createUserWithEmailAndPassword(auth,shopperDetails.shopperEmail,shopperDetails.shopperPassword);
+     const userCredentials= await createUserWithEmailAndPassword(auth,shopperDetails.shopperEmail,shopperDetails.shopperPassword);
       handlePage_progresion()
-      // const user=userCredentials.user
+      const user=userCredentials.user
       // storing data in firebase
-      // await setDoc(doc(db, "users", user.uid), {
-      //   email: user.email,
-      //   displayName: shopperDetails.shopperName,
-      // })  
+      await setDoc(doc(db, "users", user.uid), shopperDetails)  
      
     }catch(error){
        console.log("external error"+ error)

@@ -22,7 +22,7 @@ const SignUpPage = () => {
   ]
   return (
     <div className="w-full h-screen md:h-full md:p-5 flex flex-col md:items-center justify-center mt-8 md:mt-0">
-           <div className="flex flex-row items-center justify-between md:w-[34rem] md:mb-10 px-4 md:px-0">
+           {/* <div className="flex flex-row items-center justify-between md:w-[34rem] md:mb-10 px-4 md:px-0">
               <div className="flex flex-row items-center">
                  <span className="w-[1rem] bg-[#718ae3] px-2 rounded-[50%] h-[1rem]" ></span>
                  <span className="text-sm md:text-lg font-semibold ml-1 md:ml-3 font-wix">Business details</span>
@@ -35,7 +35,7 @@ const SignUpPage = () => {
                  <span className="w-[1rem] bg-[#C5CEEF] px-2 rounded-[50%] h-[1rem]" ></span>
                  <span className="text-sm md:text-lg font-semibold ml-1 md:ml-3 font-wix">Verification</span>
               </div>
-           </div>
+           </div> */}
          {/* account creation section */}
          <div className="w-full h-full md:w-[50%] md:h-full flex md:items-center justify-center  align-middle ">
            {allComponents[currentIndex]}

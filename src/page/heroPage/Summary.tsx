@@ -7,7 +7,7 @@ const Summary = () => {
         <div className=" w-full py-4 md:px-10 md:h-[8rem] flex  flex-col md:flex-row items-center align-middle justify-center  ">
             <h2 className="md:text-base  font-semibold  mb-2  font-wix md:w-[26rem] md:mr-4">What we offer?</h2>
             <span className="hidden md:block mx-4 h-[6rem] border-r border-black"></span>
-            <p className="text-base font-normal text-gray-500 font-wix md:text-left text-center">With ease find the latest procuts missing in your homes, office and workshops.</p>
+            <p className="text-base font-normal text-gray-500 font-wix md:text-left text-center">With ease find the latest products missing in your homes, office and workshops.</p>
         </div>
 
     <div className="grid grid-cols-2 md:grid-cols-4 mx-2  md:h-[12rem] bg-[#FFF5CB] gap-4 p-7 rounded-md font-wix">

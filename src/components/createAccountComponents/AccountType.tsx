@@ -13,9 +13,9 @@ const AccountType = () => {
 
 
   const [selectedCheckbox, setSelectedCheckbox] = useState<Number | null>(null);
+
   // setting account type
   const handle_account_type = (nextPage: number, account_type:string) => {
-   
     setSelectedCheckbox(nextPage);
     dispatch(set_accountType(account_type))
    

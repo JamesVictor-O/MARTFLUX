@@ -9,7 +9,7 @@ const Hotsales = () => {
             </h2>
             <span className="hidden md:block mx-4 h-[6rem] border-r border-black"></span>
             <p className="text-sm md:text-base font-normal text-gray-500 font-wix text-left md:w-[20rem] ml-6">
-              With ease find the latest procuts missing in your homes, office and
+              With ease find the latest products missing in your homes, office and
               workshops.{" "}
             </p>
           </div>
