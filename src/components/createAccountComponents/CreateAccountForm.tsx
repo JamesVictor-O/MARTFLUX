@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {auth,db} from "../../../firebase"
+import {auth} from "../../../firebase"
 import { schema } from "../../external";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 // import { doc, setDoc,collection, addDoc } from 'firebase/firestore';

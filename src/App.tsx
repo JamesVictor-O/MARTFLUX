@@ -7,7 +7,6 @@ import SignUpPage from "./page/signUpPage/signUpPage";
 import { useDispatch } from "react-redux";
 import MarketPlace from "./page/marketPlace/MarketPlace";
 import CheckoutPage from "./page/checkoutPage/CheckoutPage";
-import PaymentGateWay from "./components/paymentPage/PaymentGateWay";
 import VendorDashBoard from "./components/vendorDashBoard/vendorDashBoard";
 import LoginPage from "./page/loginPage/LoginPage";
 import { set_user } from "./context/redux/counter/userSlice";

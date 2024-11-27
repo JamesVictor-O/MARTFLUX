@@ -1,6 +1,14 @@
 import { FaRegStar } from "react-icons/fa";
-
-const ItemDetails = ({ product }) => {
+interface ProductProps{
+  product:{
+    id: number,
+    name: string,
+    imageUrl: string,
+    price: number,
+  }
+ 
+}
+const ItemDetails = ({ product }:ProductProps) => {
     return (
       <div className="ml-4 flex flex-col justify-between">
         <h2 className="text-lg font-semibold text-gray-800">{product.name}</h2>
@@ -10,7 +18,7 @@ const ItemDetails = ({ product }) => {
         </div>
         <div className="hidden md:flex flex-row items-center space-x-2 mt-4">
           <span className="text-gray-500 text-sm">Vendor:FashionVilla</span>
-          <span className="text-gray-800 text-sm font-medium">{product.color}</span>
+          <span className="text-gray-800 text-sm font-medium"></span>
         </div>
       </div>
     );
