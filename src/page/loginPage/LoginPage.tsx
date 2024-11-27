@@ -1,4 +1,4 @@
-import  {  useState } from "react";
+import  React, {  useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth} from "../../../firebase";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const LoginPage = () => {
   const [loginDetails, setLoginDetails] = useState(initialState)
   const [isLoading, setIsLoading] = useState(false)
   
-  const handleOnchange = (e) => {
+  const handleOnchange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
     setLoginDetails({
       ...loginDetails,
@@ -28,7 +28,7 @@ const LoginPage = () => {
   }
 
   // handling login with firebase
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
     try {

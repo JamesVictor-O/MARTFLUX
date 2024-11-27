@@ -51,7 +51,6 @@ function App() {
         </Route>
         <Route path="aboutUs" element={<AboutUs/>}/>
         <Route path="marketplace" element={<MarketPlace/>} />
-        <Route path="payment" element={<PaymentGateWay/>} />
         <Route path="vendorDashboard" element={<VendorDashBoard/>} />
         <Route path="checkout" element={<CheckoutPage/>}/>
         <Route path="login" element={<LoginPage/>}/>

@@ -1,6 +1,6 @@
 import { FaCreditCard } from "react-icons/fa6";
 
-interface PaymentProps{
+export interface PaymentProps{
   setIs_Checkout:(value:boolean)=> void
 }
 const PaymentGateWay = ({setIs_Checkout}:PaymentProps) => {

@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import {auth,db} from "../../../firebase"
 import { schema } from "../../external";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc,collection, addDoc } from 'firebase/firestore';
+// import { doc, setDoc,collection, addDoc } from 'firebase/firestore';
 
 interface ShopperDetailsProps {
   shopperName: string;
