@@ -1,12 +1,9 @@
 import { FaCreditCard } from "react-icons/fa6";
 
-const PaymentGateWay = () => {
-  // const {popUp,setPopUp}=useContext(UIcontext)
-  // if(!popUp) return null;
-
-  // const handlePopUpClosure=()=>{
-  //     setPopUp(false)
-  // }
+interface PaymentProps{
+  setIs_Checkout:(value:boolean)=> void
+}
+const PaymentGateWay = ({setIs_Checkout}:PaymentProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90">
       <div className="bg-gray-100 w-[90%] md:w-[720px] rounded-lg p-6">
@@ -65,15 +62,6 @@ const PaymentGateWay = () => {
           </div>
         </div>
 
-        {/* Payment Icons */}
-        {/* <div className="hidden md:flex justify-between mb-6">
-        <img src={visa} alt="Visa" className="w-8 h-8" />
-        <img src={stripe} alt="Stripe" className="w-8 h-8" />
-        <img src={mastercard} alt="MasterCard" className="w-8 h-8" />
-        <img src={paypal} alt="PayPal" className="w-8 h-8" />
-        <img src={apple} alt="Apple Pay" className="w-8 h-8" />
-      </div> */}
-
         {/* Form Inputs */}
         <div className="space-y-4">
           <div>
@@ -119,7 +107,7 @@ const PaymentGateWay = () => {
         {/* Checkout Button */}
         <div className="mt-6">
           <button
-            //   onClick={handlePopUpClosure}
+              onClick={()=> setIs_Checkout(false)}
             className="w-full py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition"
           >
             Checkout

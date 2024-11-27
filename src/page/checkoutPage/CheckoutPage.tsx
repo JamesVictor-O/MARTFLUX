@@ -2,10 +2,13 @@ import Items from "./Items/Items";
 import { GrLocation } from "react-icons/gr";
 import { FaPlus, FaCreditCard } from "react-icons/fa6";
 import { CiEdit } from "react-icons/ci";
+import PaymentGateWay from "../../components/paymentPage/PaymentGateWay";
+import { useState } from "react";
 
 // import PaymentGateWay from '../paymentPage/PaymentGateWay'
 
 const CheckoutPage = () => {
+  const[Is_Checkout,setIs_Checkout]=useState(false)
   const cartItems = [
     {
       id: 1,
@@ -22,7 +25,9 @@ const CheckoutPage = () => {
   ];
 
   return (
-    <div className="w-full">
+    
+    <>
+       <div className="w-full">
       <div className="relative w-full h-full mb-6 md:px-6 px-3">
         <h2 className="md:hidden w-[73px] h-[19px] md:mt-[22px] ml-[18px] text-[16px] font-semibold leading-[19.2px]">
           Checkout
@@ -136,13 +141,19 @@ const CheckoutPage = () => {
               </div>
             </div>
 
-            <button className="w-full hover:bg-black hover:text-white h-[56px] rounded-[24px] border-[0.74px] pt-[17px] pl-[85px] pb-[17px] pr-[85px] mt-[30px] md:mt-[120px] bg-white">
+            <button 
+            className="w-full hover:bg-black hover:text-white h-[56px] rounded-[24px] border-[0.74px] pt-[17px] pl-[85px] pb-[17px] pr-[85px] mt-[30px] md:mt-[120px] bg-white"
+            onClick={()=>setIs_Checkout(true)}
+            >
               Proceed to CheckOut
             </button>
           </div>
         </div>
       </div>
     </div>
+    {Is_Checkout && <PaymentGateWay setIs_Checkout={setIs_Checkout}/>}
+    </>
+   
   );
 };
 
