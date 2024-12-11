@@ -3,10 +3,34 @@ import Shoes from "/public/caps.jpg";
 import star2 from "/public/star2.png";
 import Newproduct from "../../components/marketplaceComponents/Newproduct";
 import CategorieComponent from "../../components/marketplaceComponents/CategorieComponent";
+import { useEffect, useContext } from "react";
+import { UserContext } from "../../context/contextApi/UserContext";
+import { collection,getDocs } from "firebase/firestore";
+import { db } from "../../../firebase";
+
 
 const MarketPlace = () => {
+  const {setProducts}=useContext(UserContext)!
+  useEffect(()=>{
+      const fetchProduct=async()=>{
+        let collectionRef=collection(db,"products")
+        try{
+           const snapshot=await getDocs(collectionRef)
+           snapshot.forEach(doc=>{
+            setProducts(doc.data().items)
+           })
+
+        }catch(err){
+          console.log(err)
+        }
+      }
+
+      fetchProduct()
+  },[])
+
+
   return (
-    <div className="w-full h-full bg-gray-50 mb-10">
+    <div className="w-full h-full bg-gray-50 mb-10 md:px-20">
       <BillBoard />
       <CategorieComponent/>
       {/* Feature products */}
@@ -51,7 +75,7 @@ const MarketPlace = () => {
                   Add to cart
                 </button>
               </div>
-            </div>
+            </div> 
           ))}
         </div>
       </div>

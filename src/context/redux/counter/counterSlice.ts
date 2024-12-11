@@ -1,31 +1,33 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
+
 interface CounterProps{
     isMenuOpen:boolean,
-    accountType: string | null
+    accountType: string | null,
 }[]
 
 const initialState:CounterProps={
     isMenuOpen: false,
-    accountType: null
+    accountType: null,
 }
 
 const counterSlice=createSlice({
     name:"counterSlice",
     initialState,
     reducers:{
-        toggle_isMenuOpen:(state)=>{
+        toggle_isMenuOpen:(state:CounterProps)=>{
            state.isMenuOpen = !state.isMenuOpen
         },
-        set_accountType:(state,action:PayloadAction<string>)=>{
+        set_accountType:(state:CounterProps,action:PayloadAction<string>)=>{
             state.accountType=action.payload;
-        }
+        },
+       
     }
 })
 
 export default counterSlice.reducer;
 
-export const {toggle_isMenuOpen, set_accountType}=counterSlice.actions;
+export const {toggle_isMenuOpen, set_accountType, set_userId}=counterSlice.actions;
 
 
 

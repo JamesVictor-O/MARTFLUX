@@ -8,14 +8,16 @@ import MobileSidebar from "./MobileSidebar";
 import { auth } from "../../firebase";
 import { RootState } from "../context/redux/configureStore";
 import { FaCartShopping } from "react-icons/fa6";
-
-import { useDispatch, useSelector } from "react-redux";
-import { toggle_isMenuOpen } from "../context/redux/counter/counterSlice";
+import { useContext } from "react";
+import { UserContext } from "../context/contextApi/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  let dispatch = useDispatch();
-  let isMenuOpen = useSelector((state: RootState) => state.counter.isMenuOpen);
-  let currentUser=useSelector((state:RootState)=>state.user.currentUser)
+
+  const {isMenuOpen,setIsMenuOpen,cartItems}=useContext(UserContext)!
+
+  let {currentUser}=useSelector((state:RootState)=>state.user)
+
   return (
     <div className=" w-full flex flex-row justify-center items-center bg-[#1A2859]">
       <div className="w-full md:w-[85%] md:my-7 h-16 bg-white flex flex-row items-center md:rounded-md align-middle p-2 md:p-5 md:px-10 justify-between">
@@ -77,7 +79,7 @@ const Header = () => {
              </Link>
              
              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md">
-               2
+               {cartItems.length}
              </span>
            </div>
 
@@ -108,10 +110,7 @@ const Header = () => {
             </Link>
           </div>
          }
-         
-
-    
-
+        
           <div
             className=" md:hidden  w-[5rem] mx-2 flex flex-row items-center justify-between"
             
@@ -130,7 +129,7 @@ const Header = () => {
               src={menuItem}
               alt="humbuger"
               className=" h-full object-contain w-[2rem]"
-              onClick={() => dispatch(toggle_isMenuOpen())}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             />
           </div>
         </div>

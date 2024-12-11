@@ -9,6 +9,7 @@ import MarketPlace from "./page/marketPlace/MarketPlace";
 import CheckoutPage from "./page/checkoutPage/CheckoutPage";
 import VendorDashBoard from "./components/vendorDashBoard/vendorDashBoard";
 import LoginPage from "./page/loginPage/LoginPage";
+import { UserContextProvider } from "./context/contextApi/UserContext";
 import { set_user } from "./context/redux/counter/userSlice";
 import {
   createBrowserRouter,
@@ -37,6 +38,8 @@ function App() {
     } 
   },[])
 
+
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
@@ -59,7 +62,10 @@ function App() {
 
   
   return (
-        <RouterProvider router={router} />
+    <UserContextProvider>
+          <RouterProvider router={router} />
+    </UserContextProvider>
+       
   );
 }
 

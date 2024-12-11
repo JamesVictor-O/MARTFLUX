@@ -3,31 +3,33 @@ import { GrLocation } from "react-icons/gr";
 import { FaPlus, FaCreditCard } from "react-icons/fa6";
 import { CiEdit } from "react-icons/ci";
 import PaymentGateWay from "../../components/paymentPage/PaymentGateWay";
-import { useState } from "react";
+import { UserContext } from "../../context/contextApi/UserContext";
+import { useState,useContext } from "react";
 
 // import PaymentGateWay from '../paymentPage/PaymentGateWay'
 
 const CheckoutPage = () => {
   const[Is_Checkout,setIs_Checkout]=useState(false)
-  const cartItems = [
-    {
-      id: 1,
-      name: "Brown Brim",
-      imageUrl: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
-      price: 25,
-    },
-    {
-      id: 2,
-      name: "Blue Beanie",
-      imageUrl: "https://i.ibb.co/ypkgK0X/blue-beanie.png",
-      price: 18,
-    },
-  ];
+  const {cartItems}=useContext(UserContext)!
+  // const cartItems = [
+  //   {
+  //     id: 1,
+  //     name: "Brown Brim",
+  //     imageUrl: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
+  //     price: 25,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Blue Beanie",
+  //     imageUrl: "https://i.ibb.co/ypkgK0X/blue-beanie.png",
+  //     price: 18,
+  //   },
+  // ];
 
   return (
     
     <>
-       <div className="w-full">
+       <div className="w-full md:px-20">
       <div className="relative w-full h-full mb-6 md:px-6 px-3">
         <h2 className="md:hidden w-[73px] h-[19px] md:mt-[22px] ml-[18px] text-[16px] font-semibold leading-[19.2px]">
           Checkout
@@ -53,7 +55,7 @@ const CheckoutPage = () => {
 
         <div className="flex flex-col w-full md:flex-row md:mt-[40px] items-center ">
           <div className=" w-full  mt-[40px]  h-full">
-            {cartItems.map((product) => (
+            {cartItems!.map((product) => (
               <Items key={product.id} product={product} />
             ))}
           </div>

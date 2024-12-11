@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import { doc, getDoc } from "firebase/firestore";
 import { ClipLoader } from "react-spinners";
 import { useDispatch} from "react-redux";
-import { set_user } from "../../context/redux/counter/userSlice";
+import { set_user} from "../../context/redux/counter/userSlice";
 
 const LoginPage = () => {
   let dispatch=useDispatch()
@@ -32,8 +32,7 @@ const LoginPage = () => {
     e.preventDefault()
     setIsLoading(true)
     try {
-    let userInfo= await signInWithEmailAndPassword(auth, loginDetails.shopperEmail, loginDetails.shopperPassword)
-      
+     let userInfo= await signInWithEmailAndPassword(auth, loginDetails.shopperEmail, loginDetails.shopperPassword)
       dispatch(set_user(userInfo.user))
       setIsLoading(false)
       setLoginDetails(initialState)
