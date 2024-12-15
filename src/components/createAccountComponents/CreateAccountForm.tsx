@@ -60,11 +60,11 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
     }catch(error){
        console.log("external error"+ error)
     }
-    // handlePage_progresion()
+
   };
 
   
-  // useEffect(()=>{console.log(shopperDetails)},[shopperDetails])
+ 
   return (
     <div className="w-full md:w-[30rem] h-[40rem] rounded-3xl md:border border-[#B5B1B1] p-5 md:p-10">
       <div className="h-20 flex flex-col justify-between">

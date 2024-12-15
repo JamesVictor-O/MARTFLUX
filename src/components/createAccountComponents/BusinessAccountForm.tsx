@@ -171,7 +171,7 @@ const BusinessAccountForm = ({ handleNext }: CreateAccountProps) => {
                   type="submit"
                   className="w-full h-full bg-[#141B34] text-white"
                 >
-                  continue
+                  Create Account
                 </button>
               </div>
               <div className="w-80  h-10 mt-1 ">

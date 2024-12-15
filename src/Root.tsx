@@ -1,11 +1,17 @@
-import { Outlet } from "react-router"
+import { Outlet, useLocation } from "react-router"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 
 const Root = () => {
+   const location = useLocation()
+
+  const noHeader=['/dashboardLayout'];
+  const shouldHideHeader=noHeader.some((route)=>
+     location.pathname.startsWith(route)
+  )
   return (
     <div>
-        <Header/> 
+        {!shouldHideHeader && <Header/>}
         <div className="">
         <Outlet />
         </div>

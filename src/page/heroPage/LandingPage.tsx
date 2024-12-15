@@ -1,7 +1,6 @@
-// import bgImage from "/public/assets/bags-with-gifts-top-copy-space.jpg"
 import advertImage from "/assets/hand holding shopping bag.png";
-// import BillBoard from "../../components/heroPage/BillBoard";
-import cryptoImage from "/public/crypto-converter.png"
+import cryptoImage from "/public/crypto-converter.png";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -16,23 +15,21 @@ const LandingPage = () => {
           effortless."
         </p>
       </div>
-      {/* shop button */}
-
-      {/* billbord */}
-      {/* <div className="mt-16 mb-8">
-           <BillBoard/>
-        </div> */}
 
       <div className=" flex flex-col-reverse md:flex-row items-center w-[90%]  overflow-visible md:mt-14">
-        {/* hand bag image */}
       <div className="hidden md:block  w-[3rem] md:w-[16rem] lg:ml-44">
         <img src={advertImage} alt="" />
       </div>
       {/* sign up buttons */}
         <div className=" text-white rounded-md overflow-hidden w-full md:w-[25rem]  flex flex-row items-center justify-between  ml-10">
           
-          <button className="w-full h-full py-4 px-4 border-b-2 rounded-2xl justify-between border">Shop now</button>
-          <button className="w-[20rem] h-full py-4 px-4 text-white bg-[#F3C300] border-b-2 rounded-2xl justify-between border ml-4">Become a Vendor</button>
+          <Link to={"/marketplace"} className="w-full h-full py-4 px-4 border-b-2 rounded-2xl text-center justify-between border">
+             Shop now
+          </Link>
+          <Link to={"/createAccount"} className="w-full h-full py-4 px-4 border-b-2 rounded-2xl text-center justify-between border ml-3">
+             Become a Vendor
+          </Link>
+          
         </div>
 
         {/* crypto image */}

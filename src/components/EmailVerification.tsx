@@ -1,11 +1,20 @@
 import  { useState } from "react";
+import { useNavigate } from "react-router";
 
 const VerifyEmail = () => {
   const [otp, setOtp] = useState("");
 
+  const navigate=useNavigate()
+
+  const handle_onSubmit=()=>{
+      if(otp !== ""){
+        navigate("dashboard")
+      }
+  }
+
   return (
     
-      <div className="bg-red-300 h-80 md:h-full rounded-lg shadow-md p-6 w-full max-w-md">
+      <div className=" h-80 md:h-full rounded-lg shadow-md p-6 w-full max-w-md">
         <h1 className="text-lg font-semibold text-blue-600">Verify email address</h1>
         <p className="text-sm text-gray-700 mt-2">
           To verify your email, we’ve sent a One Time Password (OTP) to{" "}

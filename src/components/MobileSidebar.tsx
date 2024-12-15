@@ -1,14 +1,15 @@
 import CloseMenu from "/closeMenu.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { toggle_isMenuOpen } from "../context/redux/counter/counterSlice";
-import { RootState } from "../context/redux/configureStore";
 import { auth } from "../../firebase";
+import { useContext } from "react";
+import { UserContext } from "../context/contextApi/UserContext";
 import React from "react";
 
 const MobileSidebar = () => {
   const navigate = useNavigate();
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const {currentUser,setIsMenuOpen,isMenuOpen}=useContext(UserContext)!
+
+
   const handle_onClick = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
   ) => {
@@ -21,13 +22,13 @@ const MobileSidebar = () => {
     } else if (clickedOn.id == "signUp") {
       navigate("/createAccount");
     }
-    dispatch(toggle_isMenuOpen());
+    setIsMenuOpen(!isMenuOpen);
   };
-  let dispatch = useDispatch();
+ 
   return (
     <div className="absolute  inset-y-1/4 bg-white h-screen w-[70%] top-0 right-0 z-20 p-4">
       <img
-        onClick={() => dispatch(toggle_isMenuOpen())}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
         src={CloseMenu}
         alt=""
         className="w-[2rem]"
@@ -47,7 +48,7 @@ const MobileSidebar = () => {
             id="shop"
             to={"marketplace"}
             className="border-b-2 py-2  px-3 rounded mb-3"
-            onClick={() => dispatch(toggle_isMenuOpen())}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             Shop
           </Link>

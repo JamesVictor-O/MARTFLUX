@@ -1,27 +1,23 @@
 import ItemDetails from "../ItemDetails/itemDetails";
 import { FaTrash } from "react-icons/fa6";
-
+import { CartItemProps } from "../../../context/contextApi/UserContext";
 import { FaMinus,FaPlus } from "react-icons/fa6";
-
-interface ProductProps{
-  product:{
-    id: number,
-    name: string,
-    imageUrl: string,
-    price: number,
-  }
- 
+interface itemProps{
+  product:CartItemProps
 }
 
-const Items = ({product}:ProductProps) => {
+
+
+const Items = ({product}:itemProps) => {
+  console.log(product)
     return (
       <div className="flex flex-row items-center justify-between w-[95%] lg:w-[90%] mb-6 p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
         {/* Image and Details */}
         <div className="flex flex-row items-center gap-4">
           <div className="w-[64px] h-[64px] md:w-[140px] md:h-[140px] rounded-md overflow-hidden">
             <img
-              src={product.imageUrl}
-              alt={`${product.name} image`}
+              src={product.productImage}
+              alt={product.productName}
               className="w-full h-full object-cover"
             />
           </div>
