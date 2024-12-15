@@ -6,12 +6,12 @@ import { User } from "firebase/auth";
 
 
 export interface CartItemProps{
-    id:string,
-    productName:string,
-    productImage:string,
-    vendorName:string,
-    price:number,
-    quantity:number
+  id:number 
+  price:number,
+  productImage:string,
+  productName:string,
+  quantity:number,
+  vendorName:string
 }
 
 interface UserContextType {

@@ -1,10 +1,12 @@
 import { FaRegStar } from "react-icons/fa";
 interface ProductProps{
   product:{
-    id: number,
-    name: string,
-    imageUrl: string,
-    price: number,
+    id:number 
+    price:number,
+    productImage:string,
+    productName:string,
+    quantity:number,
+    vendorName:string
   }
  
 }

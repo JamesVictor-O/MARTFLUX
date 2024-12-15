@@ -1,16 +1,16 @@
 import  { useState } from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 const VerifyEmail = () => {
   const [otp, setOtp] = useState("");
 
-  const navigate=useNavigate()
+  // const navigate=useNavigate()
 
-  const handle_onSubmit=()=>{
-      if(otp !== ""){
-        navigate("dashboard")
-      }
-  }
+  // const handle_onSubmit=()=>{
+  //     if(otp !== ""){
+  //       navigate("dashboard")
+  //     }
+  // }
 
   return (
     

@@ -3,9 +3,9 @@ import Image1 from "../../../dist/Frame1.png";
 import Image2 from "../../../dist/Frame 2.png";
 import item2 from "../../../dist/caps.jpg";
 // import { BarChart } from "@mui/x-charts/BarChart";
-import { axisClasses } from "@mui/x-charts/ChartsAxis";
 
-import React, { PureComponent } from "react";
+
+
 import {
   BarChart,
   Bar,
@@ -14,7 +14,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+
   ResponsiveContainer,
 } from "recharts";
 
