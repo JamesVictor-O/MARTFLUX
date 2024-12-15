@@ -1,4 +1,4 @@
-import chart from "../../../dist/show_chart.png";
+import chart from "../../../dist/showchart.png";
 import Image1 from "../../../dist/Frame1.png";
 import Image2 from "../../../dist/Frame 2.png";
 import item2 from "../../../dist/caps.jpg";
