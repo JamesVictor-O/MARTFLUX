@@ -17,7 +17,6 @@ const Newproduct = () => {
         {products.map((product, index) => (
           <div
             key={index}
-            id={product.id}
             className="flex flex-col bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105"
           >
             <div className="w-full h-[8rem] rounded-md overflow-hidden">
