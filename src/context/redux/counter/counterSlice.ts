@@ -27,7 +27,7 @@ const counterSlice=createSlice({
 
 export default counterSlice.reducer;
 
-export const {toggle_isMenuOpen, set_accountType, set_userId}=counterSlice.actions;
+export const {toggle_isMenuOpen, set_accountType}=counterSlice.actions;
 
 
 

@@ -1,5 +1,4 @@
 import appLogo from "/public/assets/menu-02.svg";
-import searchIcon from "/public/assets/searchIcon.svg";
 import solarBag from "/public/assets/solar_bag.svg";
 import LogImage from "/logoImage.png";
 import menuItem from "/menu2.svg";
@@ -13,15 +12,16 @@ import { UserContext } from "../context/contextApi/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-
+  
   const {isMenuOpen,setIsMenuOpen,cartItems}=useContext(UserContext)!
-
+  let accountType = useSelector((state: RootState) => state.counter.accountType);
   let {currentUser}=useSelector((state:RootState)=>state.user)
 
   return (
     <div className=" w-full flex flex-row justify-center items-center bg-[#1A2859]">
       <div className="w-full md:w-[85%] md:my-7 h-16 bg-white flex flex-row items-center md:rounded-md align-middle p-2 md:p-5 md:px-10 justify-between">
         {/* -------------- Logo ---------------- */}
+        <Link to={"/"}>
         <div className="w-40 h-9 flex flex-row items-center justify-between">
           <img src={LogImage} className="h-8 me-3" alt="FlowBite Logo" />
           <h2 className="w-32 h-full text-2xl font-normal text-blue-500">
@@ -29,9 +29,11 @@ const Header = () => {
           </h2>
           <img src={appLogo} alt="icon" className="hidden md:block ml-5" />
         </div>
+        </Link>
+        
 
         {/* --------------search bar---------------------- */}
-        <div className="w-80 h-10  hidden md:hidden lg:flex flex-row items-center rounded-lg overflow-hidden">
+        {/* <div className="hidden w-80 h-10  lg:flex flex-row items-center rounded-lg overflow-hidden">
           <input
             type="text"
             className="h-full outline-none p-2 border-gray-300 border overflow-hidden"
@@ -39,7 +41,7 @@ const Header = () => {
           <div className="bg-[#C4CEF3] text-black h-full p-2">
             <img src={searchIcon} alt="" className="h-full w-7" />
           </div>
-        </div>
+        </div> */}
         {/* menu items */}
         <div className="hidden md:flex">
           <ul className="flex flex-row items-center w-full ml-4">
@@ -59,6 +61,14 @@ const Header = () => {
                 About
               </li>
             </Link>
+            {
+            accountType=== "vendor" ?
+                 <Link to={"dashboardLayout"}>
+                 <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
+                   Dashboard
+                 </li>
+               </Link>: null
+            }
           </ul>
         </div>
         {/* ------------------cart icon  ----------------------------- */}

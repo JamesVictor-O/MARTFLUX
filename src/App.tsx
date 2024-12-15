@@ -1,4 +1,5 @@
 import "./App.css";
+
 import Root from "./Root";
 import HeroPage from "./page/heroPage/HeroPage";
 import CreateAccount from "./page/createAccountPage/CreateAccount";
@@ -9,6 +10,8 @@ import MarketPlace from "./page/marketPlace/MarketPlace";
 import CheckoutPage from "./page/checkoutPage/CheckoutPage";
 import VendorDashBoard from "./components/vendorDashBoard/vendorDashBoard";
 import LoginPage from "./page/loginPage/LoginPage";
+import DashBoardLayout from "./page/dashboardLayout/DashBoardLayout";
+import Dashboard from "./page/dashboard/Dashboard";
 import { UserContextProvider } from "./context/contextApi/UserContext";
 import { set_user } from "./context/redux/counter/userSlice";
 import {
@@ -20,6 +23,7 @@ import {
 import AboutUs from "./page/aboutUs/AboutUs";
 import { useEffect } from "react";
 import { auth } from "../firebase";
+import ListProduct from "./components/dashboardComponents/ListProduct";
 
 function App() {
   const dispatch=useDispatch()
@@ -53,6 +57,11 @@ function App() {
         </Route>
         <Route path="aboutUs" element={<AboutUs/>}/>
         <Route path="marketplace" element={<MarketPlace/>} />
+        <Route path="dashboardLayout" element={<DashBoardLayout/>}>
+            <Route index element={<Dashboard/>} />
+            <Route path="dashboardLayout/productlisting"  element={<ListProduct/>}/> 
+        </Route>
+        
         <Route path="vendorDashboard" element={<VendorDashBoard/>} />
         <Route path="checkout" element={<CheckoutPage/>}/>
         <Route path="login" element={<LoginPage/>}/>

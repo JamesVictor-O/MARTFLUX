@@ -1,8 +1,9 @@
 import  React, {  useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth} from "../../../firebase";
+import { db } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
-// import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { ClipLoader } from "react-spinners";
 import { useDispatch} from "react-redux";
 import { set_user} from "../../context/redux/counter/userSlice";
@@ -33,11 +34,23 @@ const LoginPage = () => {
     setIsLoading(true)
     try {
      let userInfo= await signInWithEmailAndPassword(auth, loginDetails.shopperEmail, loginDetails.shopperPassword)
+     let userRef=doc(db,"users",userInfo.user.uid);
+     const userSnapshot=await getDoc(userRef)
+
+     if(!userSnapshot.exists()){
+       throw new Error("user not found");
+     }
+     
+     if(userSnapshot.data().status === "vendor"){
+      navigate('/dashboardLayout')
+     }else if(userSnapshot.data().status === "shopper"){
+        navigate('/marketplace')
+     }
       dispatch(set_user(userInfo.user))
       setIsLoading(false)
       setLoginDetails(initialState)
       setIsLoading(prev=> !prev)
-      navigate('/marketplace')
+     
 
     } catch (err) {
       setIsLoading(false)
