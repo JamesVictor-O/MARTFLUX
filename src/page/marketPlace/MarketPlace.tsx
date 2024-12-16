@@ -35,7 +35,7 @@ const MarketPlace = () => {
       <CategorieComponent/>
       {/* Feature products */}
       <div className="font-wix mt-20 p-2 md:px-10 mb-8">
-        <h2 className="text-3xl font-bold">FEATURED PRODUCTS</h2>
+        <h2 className="text-3xl px-4 font-bold">FEATURED PRODUCTS</h2>
         {/* products */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
           {[...Array(8)].map((_, index) => (

@@ -1,12 +1,12 @@
 import Shoes from "/public/caps.jpg";
 const CategorieComponent = () => {
   return (
-    <div className="font-wix px-10">
+    <div className="font-wix px-4 md:px-10">
       <h2 className="text-3xl font-bold">CATEGORIES</h2>
       <p className="text-gray-600 mt-2 text-sm">
         Discover a variety of categories tailored to meet all your needs.
       </p>
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
         {[
           {
             name: "Fashion",
