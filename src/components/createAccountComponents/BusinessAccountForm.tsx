@@ -4,12 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { collection, addDoc, } from "firebase/firestore";
 import { db } from "../../../firebase";
+import { useNavigate } from "react-router";
 
-interface CreateAccountProps {
-  handleNext: () => void;
-}
 
-const BusinessAccountForm = ({ handleNext }: CreateAccountProps) => {
+const BusinessAccountForm = () => {
+  const navigate=useNavigate()
   const [vendorsDetails, setVendorsDetails] = useState({
     businessName: "",
     businessRegNo: "",
@@ -37,7 +36,7 @@ const BusinessAccountForm = ({ handleNext }: CreateAccountProps) => {
   const onSubmit = async () => {
     try {
       await addDoc(collection(db, "users"), vendorsDetails);
-      handleNext();
+      navigate("/login")
     } catch (error) {
       console.log(error);
     }

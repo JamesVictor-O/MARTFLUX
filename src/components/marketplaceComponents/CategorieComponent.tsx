@@ -42,7 +42,7 @@ const CategorieComponent = () => {
         ].map((category, index) => (
           <div
             key={index}
-            className="flex flex-col bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105"
+            className="flex flex-col bg-white md:p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105"
           >
             <div className="w-full h-[8rem] rounded-md overflow-hidden">
               <img

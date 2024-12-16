@@ -46,6 +46,7 @@ const LoginPage = () => {
      }else if(userSnapshot.data().status === "shopper"){
         navigate('/marketplace')
      }
+     localStorage.setItem("status",userSnapshot.data().status)
       dispatch(set_user(userInfo.user))
       setIsLoading(false)
       setLoginDetails(initialState)

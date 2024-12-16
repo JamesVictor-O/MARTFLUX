@@ -14,8 +14,12 @@ import { useSelector } from "react-redux";
 const Header = () => {
   
   const {isMenuOpen,setIsMenuOpen,cartItems}=useContext(UserContext)!
-  let accountType = useSelector((state: RootState) => state.counter.accountType);
   let {currentUser}=useSelector((state:RootState)=>state.user)
+
+  let userStatus=localStorage.getItem("status")
+  
+
+
 
   return (
     <div className=" w-full flex flex-row justify-center items-center bg-[#1A2859]">
@@ -62,7 +66,7 @@ const Header = () => {
               </li>
             </Link>
             {
-            accountType=== "vendor" ?
+            userStatus === "vendor" ?
                  <Link to={"dashboardLayout"}>
                  <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
                    Dashboard
@@ -96,7 +100,10 @@ const Header = () => {
           
            <button
              className="w-[50%] flex items-center justify-center h-[80%] rounded-md border border-[#F3C300] hover:bg-blue-500 hover:text-white transition-colors"
-             onClick={()=> auth.signOut()}
+             onClick={()=> {
+              auth.signOut()
+              localStorage.removeItem("status")
+             }}
            >
              <button className="w-full h-full font-medium">Sign Out</button>
            </button>

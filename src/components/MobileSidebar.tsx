@@ -3,12 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useContext } from "react";
 import { UserContext } from "../context/contextApi/UserContext";
+import { useSelector } from "react-redux";
+import { RootState } from "@/context/redux/configureStore";
 import React from "react";
 
 const MobileSidebar = () => {
+  let {currentUser}=useSelector((state:RootState)=>state.user)
   const navigate = useNavigate();
-  const {currentUser,setIsMenuOpen,isMenuOpen}=useContext(UserContext)!
-
+  const {setIsMenuOpen,isMenuOpen}=useContext(UserContext)!
+  const userStatus=localStorage.getItem("status")
 
   const handle_onClick = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
@@ -60,21 +63,33 @@ const MobileSidebar = () => {
           >
             About us
           </Link>
+          {
+            userStatus === "vendor" ?
+                 <Link to={"dashboardLayout"}>
+                 <li className="h-full text-blue  p-2 mr-2 rounded-md text-lg">
+                   Dashboard
+                 </li>
+               </Link>: null
+            }
         </div>
 
         {/* for sign up and log out */}
 
-        {currentUser ? (
+        {currentUser ? 
           <div className="bg-white pb-36 border-t-2 border-gray-400 px-3 flex flex-col items-center">
             <button
               id="signUp"
               className="w-full bg-blue-300 mt-5 text-white py-2 rounded-md "
-              onClick={() => auth.signOut()}
+              onClick={() => {
+                auth.signOut()
+                localStorage.removeItem("status")
+                setIsMenuOpen(!isMenuOpen)
+              }}
             >
               Sign out
             </button>
           </div>
-        ) : (
+         : 
           <div className="bg-white pb-36 border-t-2 border-gray-400 px-3 flex flex-col items-center">
             <button
               id="signUp"
@@ -86,11 +101,13 @@ const MobileSidebar = () => {
             <Link
               to={"login"}
               className="mt-3 border border-blue-300 w-full py-2 rounded-md text-center"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              
             >
               Log in
             </Link>
           </div>
-        )}
+        }
       </div>
     </div>
   );

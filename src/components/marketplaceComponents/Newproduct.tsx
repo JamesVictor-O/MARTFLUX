@@ -8,9 +8,9 @@ const Newproduct = () => {
      setCartItems([...cartItems,product])
   }
   return (
-    <div className="font-wix px-10">
-      <h2 className="text-3xl font-bold">NEW PRODUCTS</h2>
-      <p className="text-gray-600 mt-2 text-sm">
+    <div className="font-wix p-2 md:px-10">
+      <h2 className="text-3xl p-3 font-bold">NEW PRODUCTS</h2>
+      <p className="text-gray-600 mt-2 text-sm px-3">
         Explore our latest arrivals, carefully curated to bring you the best.
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
