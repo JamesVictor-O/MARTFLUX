@@ -63,7 +63,6 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
       setIsLoading(false) 
      
     }catch(error){
-       console.log("external error"+ error)
        setIsLoading(false)
     }
 

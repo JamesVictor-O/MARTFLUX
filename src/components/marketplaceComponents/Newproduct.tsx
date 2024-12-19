@@ -3,10 +3,21 @@ import { useContext } from "react";
 import { CartItemProps } from "../../context/contextApi/UserContext";
 import { ToastContainer, toast } from 'react-toastify';
 const Newproduct = () => {
-  const { products,setCartItems,cartItems } = useContext(UserContext)!;
+  const { products,setCartItems} = useContext(UserContext)!;
 
   const handle_addItemToCart=(product:CartItemProps)=>{
-     setCartItems([...cartItems,product])
+     setCartItems((previous:CartItemProps[])=> {
+         const existingProduct=previous.find((item)=> item.id === product.id)
+
+      if(existingProduct){
+        return previous.map(item => 
+          item.id == product.id ? {...item, quantityOnCart:item.quantityOnCart +1, price:item.price * item.quantityOnCart} : item
+        )
+      }else{
+        return [...previous,{...product, quantityOnCart:1}]
+      }
+     })
+     
      toast("item add to cart")
   }
   return (

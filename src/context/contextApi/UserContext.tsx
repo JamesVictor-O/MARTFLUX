@@ -11,7 +11,8 @@ export interface CartItemProps{
   productImage:string,
   productName:string,
   quantity:number,
-  vendorName:string
+  vendorName:string,
+  quantityOnCart:number
 }
 
 interface UserContextType {

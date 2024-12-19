@@ -1,6 +1,8 @@
 import ItemDetails from "../ItemDetails/itemDetails";
 import { FaTrash } from "react-icons/fa6";
 import { CartItemProps } from "../../../context/contextApi/UserContext";
+import { useContext } from "react";
+import { UserContext } from "../../../context/contextApi/UserContext";
 import { FaMinus,FaPlus } from "react-icons/fa6";
 interface itemProps{
   product:CartItemProps
@@ -9,7 +11,13 @@ interface itemProps{
 
 
 const Items = ({product}:itemProps) => {
-  console.log(product)
+   const {setCartItems} = useContext(UserContext)!;
+
+       const handleDeleteItem=(itemId:number)=>{
+            setCartItems((prevCartItems:CartItemProps[])=>
+              prevCartItems.filter(items => items.id !== itemId)
+            )
+       }
     return (
       <div className="flex flex-row items-center justify-between w-[95%] lg:w-[90%] mb-6 p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
         {/* Image and Details */}
@@ -31,7 +39,7 @@ const Items = ({product}:itemProps) => {
             <button className="text-gray-600 hover:text-black">
               <FaMinus />
             </button>
-            <span className="px-4 font-medium text-gray-800">3</span>
+            <span className="px-4 font-medium text-gray-800">{product.quantityOnCart}</span>
             <button className="text-gray-600 hover:text-black">
               <FaPlus />
             </button>
@@ -39,11 +47,13 @@ const Items = ({product}:itemProps) => {
   
           {/* Price */}
           <span className="font-bold text-lg text-gray-800">
-            ₦{}
+            ₦{product.price}
           </span>
   
           {/* Trash Icon */}
-          <button className="hidden md:block text-red-500 hover:text-red-700 transition-colors duration-200">
+          <button 
+          onClick={()=>handleDeleteItem(product.id)}
+          className="hidden md:block text-red-500 hover:text-red-700 transition-colors duration-200">
             <FaTrash size={20} />
           </button>
         </div>
