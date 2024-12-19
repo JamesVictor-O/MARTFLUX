@@ -127,7 +127,7 @@ const CheckoutPage = () => {
               </div>
 
               <button
-                className="w-full h-full bg-white text-sm hover:bg-black hover:text-white md:h-[56px] rounded-[24px] border-[0.74px]    md:mt-[120px]"
+                className="w-full h-full bg-white text-sm py-3 hover:bg-black hover:text-white md:h-[56px] rounded-[24px] border-[0.74px]    md:mt-[120px]"
                 onClick={() => setIs_Checkout(true)}
               >
                 Proceed to CheckOut
