@@ -1,11 +1,13 @@
 import { UserContext } from "../../context/contextApi/UserContext";
 import { useContext } from "react";
 import { CartItemProps } from "../../context/contextApi/UserContext";
+import { ToastContainer, toast } from 'react-toastify';
 const Newproduct = () => {
   const { products,setCartItems,cartItems } = useContext(UserContext)!;
 
   const handle_addItemToCart=(product:CartItemProps)=>{
      setCartItems([...cartItems,product])
+     toast("item add to cart")
   }
   return (
     <div className="font-wix p-2 md:px-10">
@@ -43,6 +45,8 @@ const Newproduct = () => {
           </div>
         ))}
       </div>
+
+      <ToastContainer autoClose={3000} />
     </div>
   );
 };

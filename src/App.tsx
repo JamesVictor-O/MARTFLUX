@@ -33,7 +33,6 @@ function App() {
        dispatch(set_user(userAuth))
      }else{
         dispatch(set_user(null))
-        console.log(userAuth)
      }
     })
 

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { ClipLoader } from "react-spinners";
 import { useDispatch} from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
 import { set_user} from "../../context/redux/counter/userSlice";
 
 const LoginPage = () => {
@@ -51,11 +52,11 @@ const LoginPage = () => {
       setIsLoading(false)
       setLoginDetails(initialState)
       setIsLoading(prev=> !prev)
-     
-
-    } catch (err) {
+      toast("succesfully logged in")
+      
+    } catch (err:any) {
       setIsLoading(false)
-      alert(err)
+      toast(err.message)
     }
   }
 
@@ -103,6 +104,7 @@ const LoginPage = () => {
          {isLoading ?  <ClipLoader color="white"/> : " Login"}
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

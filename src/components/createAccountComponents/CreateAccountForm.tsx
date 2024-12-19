@@ -8,6 +8,7 @@ import { db } from "../../../firebase";
 import { RootState } from "../../context/redux/configureStore";
 import { doc, setDoc } from 'firebase/firestore';
 import { useSelector } from "react-redux";
+import { ClipLoader } from "react-spinners";
 
 interface ShopperDetailsProps {
   shopperName: string;
@@ -41,7 +42,7 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
   };
   const [shopperDetails, setShopperDetails] = useState<ShopperDetailsProps>(initialState);
  
-
+  const [isLoading,setIsLoading]=useState(false)
   const handle_change = (e: React.ChangeEvent<HTMLInputElement>) => {
     setShopperDetails((prev) => ({
       ...prev,
@@ -50,15 +51,20 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
   };
 
   const onSubmit = async(_e:any) => {
+    setIsLoading(true)
     try{
+
      const userCredentials= await createUserWithEmailAndPassword(auth,shopperDetails.shopperEmail,shopperDetails.shopperPassword);
-      handlePage_progresion()
+     
       const user=userCredentials.user
       // storing data in firebase
-      await setDoc(doc(db, "users", user.uid), shopperDetails)  
+      await setDoc(doc(db, "users", user.uid), shopperDetails) 
+      handlePage_progresion()
+      setIsLoading(false) 
      
     }catch(error){
        console.log("external error"+ error)
+       setIsLoading(false)
     }
 
   };
@@ -174,7 +180,7 @@ const CreateAccountForm = ({handlePage_progresion}:handlePageProps) => {
 
             <div className="w-full h-11 flex flex-col items-start mt-4 mb-2 rounded-lg overflow-hidden">
               <button className="w-full h-full bg-[#141B34] text-white">
-                continue
+              {isLoading ?  <ClipLoader color="white"/> : " continue"}
               </button>
             </div>
             <div className="w-80  h-10 mt-1 ">
